@@ -1,13 +1,13 @@
+import AboutSection from "../components/AboutSection";
 import HeroSection from "../components/HeroSection";
+import ProductsSection from "../components/ProductsSection";
 
 function Home() {
   return (
     <div>
       <HeroSection />
-      <section className="features">
-        <h2>Why Choose VendPrime?</h2>
-        <p>Complete vending machine solutions — setup, stocking, maintenance, and support.</p>
-      </section>
+      <AboutSection/>
+      <ProductsSection/>
     </div>
   );
 }

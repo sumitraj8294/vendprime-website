@@ -1,7 +1,110 @@
 .footer {
-  background: #0984e3;
-  color: white;
+  background: #000; /* solid black */
+  color: #fff;
+  padding: 2rem 1rem 1rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-logo img {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+}
+
+.footer-logo .logo-text {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.footer-logo .highlight {
+  color: #00b894; /* green highlight */
+}
+
+.footer-logo .footer-tagline {
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+.footer-links h4,
+.footer-social h4,
+.footer-contact h4 {
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+  color: #00b894;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links ul li a {
+  color: #bbb;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+  color: #fff;
+}
+
+.footer-social .social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-social a {
+  color: #bbb;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #00b894;
+  transform: scale(1.2);
+}
+
+.footer-contact p {
+  font-size: 0.9rem;
+  margin: 0.4rem 0;
+  color: #bbb;
+}
+
+.footer-bottom {
   text-align: center;
-  padding: 1rem;
   margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #222;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* ✅ Responsive */
+@media (max-width: 768px) {
+  .footer-content {
+    text-align: center;
+  }
+
+  .footer-social .social-icons {
+    justify-content: center;
+  }
 }

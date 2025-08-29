@@ -2,31 +2,34 @@
   position: relative;
   height: 100vh;
   background-size: cover;
-  background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed; /* helps parallax */
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--color-white);
+  overflow: hidden;
+  will-change: background-position, transform;
 }
 
 .hero-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.025); /* dark overlay */
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 1.5rem;
+  transition: transform 0.2s ease-out;
+  will-change: transform;
 }
 
 .hero-content {
   max-width: 700px;
   text-align: center;
   animation: fadeInUp 1.2s ease-in-out;
+  transition: transform 0.2s ease-out;
+  will-change: transform;
 }
 
 .hero-content h1 {

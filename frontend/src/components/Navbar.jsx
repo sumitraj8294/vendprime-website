@@ -13,8 +13,12 @@ function Navbar({ setPage }) {
     <nav className="navbar">
       {/* Logo */}
       <div className="navbar-logo" onClick={() => handleNavClick("home")}>
-        Vend<span className="highlight">Prime</span>
-      </div>
+  <img src="/logo.png" alt="VendPrime Logo" />
+  <span className="logo-text">
+    Vend<span className="highlight">Prime</span>
+  </span>
+</div>
+
 
       {/* Hamburger */}
       <div
