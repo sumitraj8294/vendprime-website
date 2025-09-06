@@ -1,42 +1,22 @@
-import { useState } from "react";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+// src/App.jsx
 
+import { useState } from "react";
+import { BrowserRouter } from 'react-router-dom';
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer"; // Assuming you have a Footer component
 import Home from "./pages/Home";
-import About from "./pages/About";
-// import Services from "./pages/Services";
-// import Technology from "./pages/Technology";
-// import Clients from "./pages/Clients";
-// import Contact from "./pages/Contact";
 
 function App() {
+  // This state now simply tracks which section to scroll to
   const [page, setPage] = useState("home");
-
-  const renderPage = () => {
-    switch (page) {
-      case "home":
-        return <Home />;
-      case "about":
-        return <About />;
-      case "services":
-        return <Services />;
-      case "technology":
-        return <Technology />;
-      case "clients":
-        return <Clients />;
-      case "contact":
-        return <Contact />;
-      default:
-        return <Home />;
-    }
-  };
 
   return (
     <>
       <Navbar setPage={setPage} />
 
-      <main style={{ minHeight: "80vh" }}>
-        {renderPage()}
+      <main>
+        {/* Always render the Home component and pass the state as a prop */}
+        <Home scrollToSection={page} />
       </main>
 
       <Footer />

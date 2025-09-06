@@ -1,9 +1,11 @@
 .hero {
   position: relative;
   height: 100vh;
+  /* 👇 1. Set the default, larger background image here */
+  background-image: url("../assets/images/hero.png");
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* helps parallax */
+  background-attachment: fixed; /* helps parallax on desktop */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,7 +17,12 @@
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0);
+  background: rgba(
+    0,
+    0,
+    0,
+    0
+  ); /* Slightly darker overlay for better text visibility */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,10 +84,20 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .hero {
+    /* 👇 2. Swap to the smaller image on screens 768px or less */
+    background-image: url("../assets/images/hero_mini.png");
+
+    /* 👇 3. IMPORTANT: 'fixed' is often buggy on mobile. 'scroll' is a safer choice. */
+    background-attachment: scroll;
+  }
+
   .hero-content h1 {
-    font-size: 2.2rem;
+    font-size: 2rem;
+    padding: 0px 40px 0px 40px;
   }
   .hero-content p {
     font-size: 1rem;
+    padding: 0px 40px 0px 40px;
   }
 }

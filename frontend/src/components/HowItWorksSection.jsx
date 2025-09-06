@@ -7,48 +7,47 @@ import step3 from "../assets/icons/stocking.png";
 import step4 from "../assets/icons/maintain.png";
 
 const HowItWorksSection = () => {
+  // --- TEXT CHANGES ARE HERE ---
+  // The descriptions now emphasize a "Done-For-You" service model.
   const steps = [
     {
-      title: "Choose Location",
-      desc: "Select the perfect spot at your office, school, or facility.",
+      title: "Tell Us Where",
+      desc: "Simply choose the perfect high-traffic spot at your office, gym, or facility for the machine.",
       img: step1,
     },
     {
-      title: "Machine Setup",
-      desc: "We install modern vending machines with seamless integration.",
+      title: "Machine Installation",
+      desc: "Our expert team delivers and installs a state-of-the-art vending machine at your location.",
       img: step2,
     },
     {
-      title: "Stocking",
-      desc: "Regular refills with snacks, drinks, and essentials.",
+      title: "Smart Restocking",
+      desc: "We monitor stock levels remotely and keep the machine filled with a tailored selection of popular snacks and drinks.",
       img: step3,
     },
     {
-      title: "Maintenance",
-      desc: "24/7 support and regular servicing for smooth operation.",
+      title: "Ongoing Care & Support",
+      desc: "Enjoy complete peace of mind. We handle all servicing, cleaning, and technical support to ensure it's always running perfectly.",
       img: step4,
     },
   ];
 
   const sectionRef = useRef(null);
   const stepRefs = useRef([]);
-  const [progress, setProgress] = useState(0); // 0 → 1
+  const [progress, setProgress] = useState(0);
 
-  // Fill timeline based on scroll position within this section
   useEffect(() => {
     const onScroll = () => {
       if (!sectionRef.current) return;
       const rect = sectionRef.current.getBoundingClientRect();
       const viewportH = window.innerHeight;
-
-      // Amount of section scrolled
       const totalScrollable = Math.max(rect.height - viewportH, 1);
       const passed = Math.min(Math.max(-rect.top, 0), totalScrollable);
       const pct = passed / totalScrollable;
       setProgress(pct);
     };
 
-    onScroll(); // initialize
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
     return () => {
@@ -57,7 +56,6 @@ const HowItWorksSection = () => {
     };
   }, []);
 
-  // Reveal steps one by one as they enter the viewport
   useEffect(() => {
     const io = new IntersectionObserver(
       (entries) => {
@@ -79,13 +77,12 @@ const HowItWorksSection = () => {
   return (
     <section className="howitworks" ref={sectionRef}>
       <div className="howitworks-container">
-        <h2>How It Works</h2>
+        <h2>Your Hassle-Free Vending Solution</h2>
         <p className="howitworks-subtext">
-          From setup to servicing – we handle everything.
+          From installation to daily operations – we handle everything for you.
         </p>
 
         <div className="timeline-wrap">
-          {/* Timeline track + progress */}
           <div className="timeline">
             <div
               className="timeline-progress"
@@ -93,7 +90,6 @@ const HowItWorksSection = () => {
             />
           </div>
 
-          {/* Steps */}
           <div className="steps">
             {steps.map((step, i) => (
               <article

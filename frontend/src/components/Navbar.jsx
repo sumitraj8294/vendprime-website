@@ -1,24 +1,26 @@
+// src/components/Navbar.jsx
+
 import { useState } from "react";
-import "./../styles/navbar.css";
+import "./../styles/navbar.css"; // Make sure you have this CSS file
 
 function Navbar({ setPage }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleNavClick = (page) => {
     setPage(page);
-    setIsOpen(false); // close menu on mobile after click
+    setIsOpen(false); // Close menu on mobile after click
   };
 
   return (
     <nav className="navbar">
       {/* Logo */}
       <div className="navbar-logo" onClick={() => handleNavClick("home")}>
-  <img src="/logo.png" alt="VendPrime Logo" />
-  <span className="logo-text">
-    VEND<span className="highlight">PRIME</span>
-  </span>
-</div>
-
+        {/* Make sure you have logo.png in your public folder */}
+        <img src="/logo.png" alt="VendPrime Logo" />
+        <span className="logo-text">
+          VEND<span className="highlight">PRIME</span>
+        </span>
+      </div>
 
       {/* Hamburger */}
       <div
@@ -33,12 +35,11 @@ function Navbar({ setPage }) {
       {/* Links */}
       <div className={`navbar-links ${isOpen ? "active" : ""}`}>
         <button onClick={() => handleNavClick("home")}>Home</button>
-        <button onClick={() => handleNavClick("about")}>About</button>
+        <button onClick={() => handleNavClick("about")}>About Us</button>
         <button onClick={() => handleNavClick("services")}>Services</button>
-        <button onClick={() => handleNavClick("technology")}>Technology</button>
         <button onClick={() => handleNavClick("clients")}>Clients</button>
         <button onClick={() => handleNavClick("contact")}>Contact</button>
-        <button className="navbar-cta">Get Started</button>
+        <button onClick={() => handleNavClick("feedback")}>Feedback</button>
       </div>
     </nav>
   );
