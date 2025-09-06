@@ -30,7 +30,7 @@
 
 /* --- Section Styling --- */
 .products {
-  padding: 100px 100px;
+  padding: 100px 100px; /* This padding will be adjusted for smaller screens */
   background-color: var(--color-bg);
   font-family: "Poppins", sans-serif;
 }
@@ -39,8 +39,7 @@
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
-  margin-left: 10%;
-  margin-right: 10%;
+  /* Removed fixed margins to rely on parent's padding for responsiveness */
 }
 
 .products-container h2 {
@@ -58,11 +57,12 @@
 /* --- Products Grid --- */
 .products-grid {
   display: grid;
+  /* auto-fit with minmax is already a great responsive technique! */
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
 }
 
-/* --- NEW Product Card Styling --- */
+/* --- Product Card Styling --- */
 .product-card {
   background-color: var(--color-card);
   border-radius: 16px;
@@ -82,10 +82,9 @@
   box-shadow: 0 12px 25px rgba(27, 31, 59, 0.12);
 }
 
-/* --- NEW Image Container Styling --- */
+/* --- Image Container Styling --- */
 .product-img-container {
   width: 100%;
-  /* The height is now automatic */
   aspect-ratio: 16 / 10; /* Gives a consistent shape without fixed height */
   overflow: hidden;
   border-radius: 16px 16px 0 0; /* Rounds top corners */
@@ -94,11 +93,10 @@
 .product-img-container img {
   width: 100%;
   height: 100%;
-  /* This ensures the image fills the aspect-ratio box */
-  object-fit: cover;
+  object-fit: cover; /* This ensures the image fills the aspect-ratio box */
 }
 
-/* --- NEW Content Styling --- */
+/* --- Content Styling --- */
 .product-content {
   padding: 25px;
   text-align: left;
@@ -135,4 +133,59 @@
   left: 0;
   font-size: 14px;
   color: var(--color-secondary);
+}
+
+/*
+==============================================
+--- Responsive Design ---
+==============================================
+*/
+
+/* --- Tablet (Medium Screens) --- */
+@media (max-width: 992px) {
+  .products {
+    padding: 80px 40px; /* Reduce side padding */
+  }
+
+  .products-container h2 {
+    font-size: 2.5rem; /* Slightly smaller heading */
+  }
+
+  .products-subtext {
+    font-size: 1.1rem;
+  }
+}
+
+/* --- Mobile (Small Screens) --- */
+@media (max-width: 768px) {
+  .products {
+    padding: 60px 20px; /* Further reduce padding for mobile */
+  }
+
+  .products-container h2 {
+    font-size: 2rem; /* Make heading mobile-friendly */
+  }
+
+  .products-subtext {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+
+  .products-grid {
+    gap: 20px; /* Reduce the gap between cards */
+  }
+
+  .product-content {
+    padding: 20px; /* Reduce padding inside the card */
+  }
+
+  .product-content h3 {
+    font-size: 1.25rem;
+  }
+
+  /* Optional: Disable hover effect on touch devices for a better UX */
+  .product-card:hover {
+    transform: none;
+    box-shadow: 0 4px 15px var(--color-shadow);
+  }
 }
