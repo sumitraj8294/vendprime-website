@@ -1,6 +1,8 @@
 // src/components/MachineFeatures.jsx
 
 import React from 'react';
+import { FaBeer } from "react-icons/fa";
+
 import '../styles/Services.css'; // The custom CSS will go here
 
 // Import desired icons from a library like react-icons
