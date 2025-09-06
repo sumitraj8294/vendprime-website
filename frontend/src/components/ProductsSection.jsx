@@ -3,9 +3,9 @@ import "../styles/ProductsSection.css";
 
 // Import category images
 import snacksImg from "../assets/images/snacks/snacks.png";
-import stationeryImg from "../assets/images/snacks/snacks.png";
-import hygieneImg from "../assets/images/snacks/snacks.png";
-import healthImg from "../assets/images/snacks/snacks.png";
+import stationeryImg from "../assets/images/snacks/stationary.png";
+import hygieneImg from "../assets/images/snacks/Hygeinie.png";
+import healthImg from "../assets/images/snacks/Health.png";
 
 const ProductsSection = () => {
   const categories = [

@@ -1,7 +1,56 @@
+/* --- CSS Variables for Easy Theming --- */
+:root {
+  --color-primary: #0984e3;
+  --color-secondary: #00b894;
+  --color-background: #ffffff;
+  --color-card-bg: #f8f9fa;
+  --color-heading: #2d3436;
+  --color-text: #636e72;
+  --color-shadow: rgba(0, 0, 0, 0.08);
+  --font-family: "Poppins", sans-serif; /* Recommended for a modern look */
+}
+
+/* --- Keyframe Animations --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* --- Main Section Styling --- */
 .about {
-  padding: 4rem 2rem;
-  background: #ffffff;
-  color: #2d3436;
+  padding: 5rem 2rem;
+  background: var(--color-background);
+  color: var(--color-heading);
+  font-family: var(--font-family);
+  overflow-x: hidden; /* Important for containing animations */
 }
 
 .about-container {
@@ -11,80 +60,115 @@
   gap: 3rem;
   max-width: 1200px;
   margin: 0 auto;
-  flex-wrap: wrap;
+}
+
+/* --- Image Styling with Animation & Hover Effect --- */
+.about-image {
+  position: relative;
+  flex: 1;
+  max-width: 500px;
+  /* Entry Animation */
+  opacity: 0;
+  animation: fadeInLeft 1s ease-out forwards;
 }
 
 .about-image img {
   width: 100%;
-  max-width: 500px;
   border-radius: 16px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  box-shadow: 0 8px 25px var(--color-shadow);
+  transition: transform 0.4s ease;
+  position: relative;
+  z-index: 1;
 }
 
-.about-image img:hover {
-  transform: scale(1.03);
+.about-image:hover img {
+  transform: scale(1.05);
 }
 
+/* --- Content Styling with Animations --- */
 .about-content {
   flex: 1;
+  min-width: 300px;
+  /* Entry Animation */
+  opacity: 0;
+  animation: fadeInRight 1s ease-out 0.2s forwards;
 }
 
 .about-content h2 {
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
-  color: #0984e3;
+  /* Fluid typography for better responsiveness */
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  margin-bottom: 1.5rem;
+  color: var(--color-primary);
+  line-height: 1.2;
 }
 
-.about-content p {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-  color: #636e72;
+.about-content > p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  color: var(--color-text);
 }
 
+/* --- Highlights Grid --- */
 .about-highlights {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
 }
 
+/* --- Highlight Card with Staggered Animation & Hover Effect --- */
 .highlight-card {
-  padding: 1.2rem;
-  background: #f8f9fa;
+  padding: 1.5rem;
+  background: var(--color-card-bg);
   border-radius: 12px;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 4px 15px var(--color-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  /* Staggered Entry Animation */
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out forwards;
 }
 
+/* Add delays for the first few cards */
+.highlight-card:nth-child(1) {
+  animation-delay: 0.4s;
+}
+.highlight-card:nth-child(2) {
+  animation-delay: 0.6s;
+}
+.highlight-card:nth-child(3) {
+  animation-delay: 0.8s;
+}
+/* For dynamic content, it's best to apply this delay via JavaScript */
+
 .highlight-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .highlight-card h3 {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
-  color: #00b894;
+  color: var(--color-secondary);
 }
 
 .highlight-card p {
   font-size: 0.95rem;
-  color: #636e72;
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.5;
 }
 
-/* Responsive */
+/* --- Responsive Design --- */
 @media (max-width: 900px) {
   .about-container {
     flex-direction: column;
     text-align: center;
   }
 
-  .about-image img {
-    max-width: 100%;
-  }
-
   .about-content {
-    margin-top: 2rem;
+    /* Reset animation for mobile view to avoid awkward slide-in */
+    animation: fadeInUp 1s ease-out forwards;
   }
 }

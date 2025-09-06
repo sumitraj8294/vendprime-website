@@ -1,103 +1,116 @@
-/* ProductsSection.css */
-
-/* Fonts for a clean, modern look */
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
-
+/* --- Root Variables (Color Theme) --- */
 :root {
-  --color-text-primary: #333;
-  --color-text-secondary: #666;
-  --color-accent: #007bff;
-  --color-bg-light: #f4f7f9;
-  --color-bg-card: #ffffff;
-  --color-border: #e0e0e0;
-  --color-shadow: rgba(0, 0, 0, 0.08);
+  /* Base Colors */
+  --color-primary: #1b1f3b; /* Dark Navy Blue */
+  --color-secondary: #ffd93d; /* Funky Yellow */
+
+  /* Funky Accents */
+  --color-green: #06d6a0; /* Neon Green */
+
+  /* Neutral */
+  --color-bg: #f9f9f9;
+  --color-card: #ffffff;
+  --color-text: #1c1c1c;
+  --color-text-light: #6c757d;
+  --color-shadow: rgba(27, 31, 59, 0.08);
+  --color-border: #e9ecef;
 }
 
-/* General Section Styling */
+/* --- Keyframe Animations --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Section Styling --- */
 .products {
-  padding: 80px 20px;
-  background-color: var(--color-bg-light);
-  text-align: center;
-  font-family: "Roboto", sans-serif;
+  padding: 100px 100px;
+  background-color: var(--color-bg);
+  font-family: "Poppins", sans-serif;
 }
 
 .products-container {
   max-width: 1200px;
   margin: 0 auto;
+  text-align: center;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
-h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--color-text-primary);
+.products-container h2 {
+  font-size: 2.8rem;
+  color: var(--color-primary);
   margin-bottom: 10px;
 }
 
 .products-subtext {
-  font-size: 1.1rem;
-  color: var(--color-text-secondary);
+  font-size: 1.2rem;
+  color: var(--color-text-light);
   margin-bottom: 50px;
 }
 
-/* Products Grid Layout */
+/* --- Products Grid --- */
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
-  justify-content: center;
-  align-items: stretch;
 }
 
-/* Individual Product Card Styling */
+/* --- NEW Product Card Styling --- */
 .product-card {
-  background-color: var(--color-bg-card);
-  border-radius: 8px;
-  box-shadow: 0 4px 12px var(--color-shadow);
-  overflow: hidden;
+  background-color: var(--color-card);
+  border-radius: 16px;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 15px var(--color-shadow);
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Stacks image and content vertically */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  min-height: 280px;
+
+  /* Staggered entry animation */
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out forwards;
 }
 
 .product-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 20px var(--color-shadow);
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(27, 31, 59, 0.12);
 }
 
+/* --- NEW Image Container Styling --- */
 .product-img-container {
   width: 100%;
-  height: 60%;
-  position: relative;
-  background-color: transparent;
+  /* The height is now automatic */
+  aspect-ratio: 16 / 10; /* Gives a consistent shape without fixed height */
   overflow: hidden;
+  border-radius: 16px 16px 0 0; /* Rounds top corners */
 }
 
 .product-img-container img {
   width: 100%;
   height: 100%;
+  /* This ensures the image fills the aspect-ratio box */
   object-fit: cover;
-  transition: transform 0.3s ease;
 }
 
-.product-card:hover .product-img-container img {
-  transform: scale(1.05);
-}
-
+/* --- NEW Content Styling --- */
 .product-content {
-  flex-grow: 1;
-  padding: 15px;
+  padding: 25px;
+  text-align: left;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  text-align: left;
+  flex-grow: 1; /* Allows content to expand, making all cards equal height */
 }
 
 .product-content h3 {
-  font-size: 1.2rem;
-  color: var(--color-text-primary);
-  margin: 0 0 10px 0;
-  text-align: center;
+  font-size: 1.4rem;
+  color: var(--color-primary);
+  margin: 0 0 15px 0;
 }
 
 .product-content ul {
@@ -107,32 +120,19 @@ h2 {
 }
 
 .product-content li {
-  font-size: 0.9rem;
-  color: var(--color-text-secondary);
-  margin-bottom: 5px;
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  padding-left: 22px;
   position: relative;
-  padding-left: 20px;
+  line-height: 1.5;
 }
 
-/* Custom bullet points with accent color */
+/* Custom list bullet points with the accent color */
 .product-content li::before {
-  content: "•";
-  color: var(--color-accent);
-  font-weight: bold;
+  content: "■";
   position: absolute;
   left: 0;
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 992px) {
-  .products-grid {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  }
-}
-
-@media (max-width: 576px) {
-  .products-grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
+  font-size: 14px;
+  color: var(--color-secondary);
 }

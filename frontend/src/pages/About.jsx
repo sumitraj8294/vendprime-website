@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/about.css";
+import AboutVendPrime from "../assets/images/machines/AboutVendPrime.png";
 
 const About = () => {
   return (
@@ -20,7 +21,7 @@ const About = () => {
           </p>
         </div>
         <div className="about-image">
-          <img src="../assets/about.jpg" alt="About VendPrime" />
+          <img src={AboutVendPrime} alt="About VendPrime" />
         </div>
       </div>
     </section>

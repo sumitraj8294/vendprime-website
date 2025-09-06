@@ -1,5 +1,7 @@
 import AboutSection from "../components/AboutSection";
+import BenefitsSection from "../components/BenefitsSection";
 import HeroSection from "../components/HeroSection";
+import HowItWorksSection from "../components/HowItWorksSection";
 import ProductsSection from "../components/ProductsSection";
 
 function Home() {
@@ -8,6 +10,8 @@ function Home() {
       <HeroSection />
       <AboutSection/>
       <ProductsSection/>
+      <HowItWorksSection/>
+      <BenefitsSection/>
     </div>
   );
 }

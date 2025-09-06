@@ -15,7 +15,7 @@ function Navbar({ setPage }) {
       <div className="navbar-logo" onClick={() => handleNavClick("home")}>
   <img src="/logo.png" alt="VendPrime Logo" />
   <span className="logo-text">
-    Vend<span className="highlight">Prime</span>
+    VEND<span className="highlight">PRIME</span>
   </span>
 </div>
 
