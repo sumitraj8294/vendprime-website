@@ -7,9 +7,7 @@ import HeroSection from "../components/HeroSection";
 import HowItWorksSection from "../components/HowItWorksSection";
 import ProductsSection from "../components/ProductsSection";
 import Services from "../components/Services";
-
-// --- Placeholder Components (replace with your actual components) ---
-const Clients = () => <div style={{height: '50vh', background: '#e0e0e0', padding: '20px'}}><h2>Our Clients</h2></div>;
+import Clients from "../components/Clients";
 const Contact = () => <div style={{height: '50vh', background: '#d1d1d1', padding: '20px'}}><h2>Contact Us</h2></div>;
 const Feedback = () => <div style={{height: '50vh', background: '#c2c2c2', padding: '20px'}}><h2>Feedback</h2></div>;
 // -----------------------------------------------------------------
@@ -53,6 +51,9 @@ function Home({ scrollToSection }) {
       <div ref={aboutRef}>
         <AboutSection />
       </div>
+      <div ref={clientsRef}>
+        <Clients />
+      </div>
       <div>
         <ProductsSection />
       </div>
@@ -64,9 +65,6 @@ function Home({ scrollToSection }) {
       </div>
       <div ref={servicesRef}>
         <Services />
-      </div>
-      <div ref={clientsRef}>
-        <Clients />
       </div>
       <div ref={contactRef}>
         <Contact />

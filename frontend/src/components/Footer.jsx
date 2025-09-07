@@ -47,9 +47,9 @@ function Footer() {
         {/* Contact Info */}
         <div className="footer-contact">
           <h4>Contact Us</h4>
-          <p>Email: support@vendprime.com</p>
-          <p>Phone: +91 98765 43210</p>
-          <p>Address: Bengaluru, India</p>
+          <p>Email: vendprime1@gmail.com</p>
+          <p>Phone: +91 86840 26137</p>
+          <p>Address: G-2, PLOT NO G-4, EAGLE RESENDENCE, KHETAN SIKAR ROAD, PATH NO.6, Jaipur, Jaipur, Rajasthan, 302039</p>
         </div>
       </div>
 

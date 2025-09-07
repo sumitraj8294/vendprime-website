@@ -10,11 +10,12 @@ import healthImg from "../assets/images/snacks/Health.png";
 const ProductsSection = () => {
   const categories = [
     {
-      title: "Snacks & Beverages",
+      title: "Snacks, beverages & fresh food",
       desc: [
         "Chips, chocolates, biscuits, namkeen",
         "Soft drinks, juices, energy drinks, protein drinks",
         "Mineral water, tetra packs",
+        "Fruits , food and fresh juices"
       ],
       img: snacksImg,
     },
