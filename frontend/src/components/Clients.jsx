@@ -5,7 +5,7 @@ import '../styles/Clients.css';
 import kpmgLogo from '../assets/logos/kpmg.png';
 import jiohotstarLogo from '../assets/logos/jiohotstar.png';
 import dentalKartLogo from '../assets/logos/dental.png';
-import disneyLogo from '../assets/logos/disney.png';
+import starLogo from '../assets/logos/star.png';
 import medantaLogo from '../assets/logos/medanta.png';
 import concentrixLogo from '../assets/logos/concentrix.png';
 import rbiLogo from '../assets/logos/rbi.png';
@@ -14,21 +14,24 @@ import iitDelhiLogo from '../assets/logos/iitdelhi.png';
 import amityLogo from '../assets/logos/amity.png';
 import platinaLogo from '../assets/logos/platina.png';
 import iccsLogo from '../assets/logos/iccs.png';
+import oyoLogo from '../assets/logos/oyo.png';
 
 // 2. Update the array to use the imported variables
 const clients = [
   { name: 'KPMG', logoUrl: kpmgLogo },
   { name: 'Jio Hotstar', logoUrl: jiohotstarLogo },
   { name: 'Dental Kart', logoUrl: dentalKartLogo },
-  { name: 'Disney', logoUrl: disneyLogo },
-  { name: 'Medanta Hospitals', logoUrl: medantaLogo },
-  { name: 'Concentrix', logoUrl: concentrixLogo },
+  { name: 'Oyo', logoUrl: oyoLogo },
   { name: 'RBI', logoUrl: rbiLogo },
+  { name: 'Concentrix', logoUrl: concentrixLogo },
   { name: 'NTPC', logoUrl: ntpcLogo },
   { name: 'IIT Delhi', logoUrl: iitDelhiLogo },
+  { name: 'Medanta Hospitals', logoUrl: medantaLogo },
   { name: 'Amity University', logoUrl: amityLogo },
   { name: 'Platina heights', logoUrl: platinaLogo },
   { name: 'ICCS', logoUrl: iccsLogo },
+  { name: 'Star', logoUrl: starLogo },
+ 
 ];
 
 const Clients = () => {
