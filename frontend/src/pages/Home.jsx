@@ -8,8 +8,9 @@ import HowItWorksSection from "../components/HowItWorksSection";
 import ProductsSection from "../components/ProductsSection";
 import Services from "../components/Services";
 import Clients from "../components/Clients";
-const Contact = () => <div style={{height: '50vh', background: '#d1d1d1', padding: '20px'}}><h2>Contact Us</h2></div>;
-const Feedback = () => <div style={{height: '50vh', background: '#c2c2c2', padding: '20px'}}><h2>Feedback</h2></div>;
+import Contact from "../components/Contact";
+import Feedback from "../components/Feedback";
+import PartnerBrands from "../components/PartnerBrands";
 // -----------------------------------------------------------------
 
 function Home({ scrollToSection }) {
@@ -56,6 +57,9 @@ function Home({ scrollToSection }) {
       </div>
       <div>
         <ProductsSection />
+      </div>
+      <div>
+        <PartnerBrands />
       </div>
       <div>
         <HowItWorksSection />

@@ -3,49 +3,50 @@
 /* --- Google Font Import --- */
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap");
 
-/* --- Color & Root Variables (for consistency) --- */
+/* --- Color & Root Variables --- */
 :root {
   --color-primary: #1b1f3b; /* Dark Navy Blue */
   --color-text: #1c1c1c; /* Primary Text */
   --color-text-light: #6c757d; /* Secondary Text */
   --font-heading: "Playfair Display", serif;
   --font-body: "Montserrat", sans-serif;
+
+  /* Scroller Variables - Easy to customize! */
+  --logo-width: 180px; /* The width of each logo container */
+  --logo-count: 13; /* << IMPORTANT: Set this to the number of unique logos you have */
 }
 
-/* --- Animation Keyframes --- */
-@keyframes fadeInUp {
+/* --- Scrolling Animation --- */
+@keyframes scroll {
   from {
-    opacity: 0;
-    transform: translateY(30px);
+    transform: translateX(0);
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+    /* Moves the track left by the total width of the *first* set of logos */
+    transform: translateX(calc(var(--logo-width) * var(--logo-count) * -1));
   }
 }
 
 /* --- Section Styling --- */
 .clients-section {
-  padding: 100px 20px;
-  background-color: #f7f8fa; /* A clean, very light grey */
+  padding: 100px 0; /* Changed to 0 left/right for full-width scroller */
+  background-color: #f7f8fa;
   text-align: center;
-  overflow: hidden; /* Important for containing animations */
+  overflow-x: hidden; /* Crucial for hiding the overflowing track */
 }
 
-/* --- Typography with Animations --- */
-.clients-section .section-title,
-.clients-section .section-subtitle {
-  opacity: 0; /* Start hidden for animation */
-  animation: fadeInUp 0.8s ease forwards;
+/* --- Typography (Animations removed from here) --- */
+.clients-section .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
-
 .clients-section .section-title {
   font-family: var(--font-heading);
   color: var(--color-primary);
   font-size: 2.8rem;
   margin-bottom: 20px;
 }
-
 .clients-section .section-subtitle {
   font-family: var(--font-body);
   color: var(--color-text-light);
@@ -53,96 +54,122 @@
   max-width: 600px;
   margin: 0 auto 60px auto;
   line-height: 1.7;
-  animation-delay: 0.2s; /* Stagger the subtitle animation */
 }
 
-/* --- Animated Logo Grid --- */
-.logos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 45px 30px;
-  align-items: center;
-  max-width: 1100px;
-  margin: 0 auto;
+/* --- Logo Scroller Container --- */
+.client-scroller {
+  max-width: 100%;
+  position: relative;
+  /* Adds a nice fade effect to the edges */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
 }
 
+/* --- The scrolling track that holds the logos --- */
+.logos-track {
+  display: flex;
+  /* Total width = (width of one logo) * (number of logos) * 2 (for duplication) */
+  width: calc(var(--logo-width) * var(--logo-count) * 2);
+
+  /* ✨ ANIMATION ✨
+     - Change '40s' to make it faster or slower. 5s is very fast! 30-40s is usually good. */
+  animation: scroll 40s linear infinite;
+}
+
+/* Pause the animation when the user hovers over the scroller */
+.client-scroller:hover .logos-track {
+  animation-play-state: paused;
+}
+
+/* --- Individual Logo Styling --- */
 .logo-item {
-  opacity: 0; /* Start hidden for animation */
-  animation: fadeInUp 0.6s ease forwards;
+  width: var(--logo-width);
+  padding: 0 20px;
+  flex-shrink: 0; /* Prevents logos from shrinking */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .logo-item img {
-  max-width: 140px;
+  max-width: 130px;
   height: auto;
-  /* Removed filter: grayscale(100%) opacity(0.5); */
-  opacity: 0.85; /* Slightly faded by default, but full color */
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  opacity: 0.75;
+  transition: all 0.4s ease;
 }
 
-.logo-item img:hover {
-  opacity: 1; /* Fully opaque on hover */
-  transform: scale(1.15) translateY(-5px);
+.logo-item:hover img {
+  opacity: 1;
+  transform: scale(1.1);
   cursor: pointer;
 }
 
-/* ✨ Staggered animation delay for each logo ✨ */
-.logos-grid > *:nth-child(1) {
-  animation-delay: 0.3s;
+/* --- Navigation Buttons --- */
+.scroller-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: white;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  font-size: 24px;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0; /* Hidden by default */
+  pointer-events: none; /* Can't click when hidden */
 }
-.logos-grid > *:nth-child(2) {
-  animation-delay: 0.4s;
+
+/* Show buttons when hovering the main scroller area */
+.client-scroller:hover .scroller-btn {
+  opacity: 1;
+  pointer-events: auto;
 }
-.logos-grid > *:nth-child(3) {
-  animation-delay: 0.5s;
+
+.scroller-btn:hover {
+  background: var(--color-primary);
+  color: white;
+  transform: translateY(-50%) scale(1.1);
 }
-.logos-grid > *:nth-child(4) {
-  animation-delay: 0.6s;
+
+.scroller-btn.prev-btn {
+  left: 20px;
 }
-.logos-grid > *:nth-child(5) {
-  animation-delay: 0.7s;
-}
-.logos-grid > *:nth-child(6) {
-  animation-delay: 0.8s;
-}
-.logos-grid > *:nth-child(7) {
-  animation-delay: 0.9s;
-}
-.logos-grid > *:nth-child(8) {
-  animation-delay: 1s;
-}
-.logos-grid > *:nth-child(9) {
-  animation-delay: 1.1s;
-}
-.logos-grid > *:nth-child(10) {
-  animation-delay: 1.2s;
-}
-.logos-grid > *:nth-child(11) {
-  animation-delay: 1.3s;
-}
-.logos-grid > *:nth-child(12) {
-  animation-delay: 1.4s;
+.scroller-btn.next-btn {
+  right: 20px;
 }
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 768px) {
-  .clients-section {
-    padding: 80px 15px;
+  :root {
+    --logo-width: 150px; /* Adjust logo size for tablets */
   }
-  .clients-section .section-title {
-    font-size: 2.2rem;
-  }
-  .logos-grid {
-    grid-template-columns: repeat(3, 1fr); /* 3 columns on tablet */
-    gap: 40px;
-  }
-  .logo-item img {
-    max-width: 110px;
+  .scroller-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
   }
 }
 
 @media (max-width: 480px) {
-  .logos-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
-    gap: 35px;
+  /* On mobile, we hide the buttons to save space */
+  .scroller-btn {
+    display: none;
   }
 }

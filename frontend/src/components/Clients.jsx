@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState, useRef } from 'react'; // 👈 1. Import useState and useRef
 import '../styles/Clients.css';
 
-// 1. Import each logo file
+// --- Logo Imports (no change here) ---
 import kpmgLogo from '../assets/logos/kpmg.png';
 import jiohotstarLogo from '../assets/logos/jiohotstar.png';
 import dentalKartLogo from '../assets/logos/dental.png';
@@ -16,7 +16,6 @@ import platinaLogo from '../assets/logos/platina.png';
 import iccsLogo from '../assets/logos/iccs.png';
 import oyoLogo from '../assets/logos/oyo.png';
 
-// 2. Update the array to use the imported variables
 const clients = [
   { name: 'KPMG', logoUrl: kpmgLogo },
   { name: 'Jio Hotstar', logoUrl: jiohotstarLogo },
@@ -29,12 +28,39 @@ const clients = [
   { name: 'Medanta Hospitals', logoUrl: medantaLogo },
   { name: 'Amity University', logoUrl: amityLogo },
   { name: 'Platina heights', logoUrl: platinaLogo },
-  { name: 'ICCS', logoUrl: iccsLogo },
+  { name :'ICCS', logoUrl: iccsLogo },
   { name: 'Star', logoUrl: starLogo },
- 
 ];
 
+const LOGO_WIDTH = 180; // Define logo width as a constant
+
 const Clients = () => {
+  const extendedClients = [...clients, ...clients];
+  const [position, setPosition] = useState(0); // 👈 2. State to track the scroll position
+  const trackRef = useRef(null); // 👈 3. Ref to access the track element
+
+  const handleMove = (direction) => {
+    const trackWidth = trackRef.current.scrollWidth;
+    const singleSetWidth = trackWidth / 2;
+
+    let newPosition;
+    if (direction === 'next') {
+      newPosition = position - LOGO_WIDTH;
+      // If we scroll past the end of the first set, reset to the beginning
+      if (Math.abs(newPosition) >= singleSetWidth) {
+        newPosition = 0;
+      }
+    } else { // 'prev'
+      newPosition = position + LOGO_WIDTH;
+      // If we scroll past the beginning, loop to the end
+      if (newPosition > 0) {
+        newPosition = -(singleSetWidth - LOGO_WIDTH);
+      }
+    }
+    setPosition(newPosition);
+  };
+
+
   return (
     <section id="clients" className="clients-section">
       <div className="container">
@@ -42,14 +68,33 @@ const Clients = () => {
         <p className="section-subtitle">
           We are proud to partner with a diverse range of clients across various sectors.
         </p>
-        <div className="logos-grid">
-          {clients.map((client) => (
-            <div className="logo-item" key={client.name}>
-              {/* 3. The img tag now receives the correct image URL */}
+      </div>
+
+      <div className="client-scroller">
+        {/* 👇 4. Apply the ref and the dynamic style for transform */}
+        <div 
+          className="logos-track" 
+          ref={trackRef}
+          style={{ transform: `translateX(${position}px)` }}
+        >
+          {extendedClients.map((client, index) => (
+            <div className="logo-item" key={`${client.name}-${index}`}>
               <img src={client.logoUrl} alt={`${client.name} logo`} />
             </div>
           ))}
         </div>
+        
+        {/* 👇 5. Add the onClick event handlers to the buttons */}
+        <button 
+          className="scroller-btn prev-btn" 
+          aria-label="Previous logos"
+          onClick={() => handleMove('prev')}
+        >&lt;</button>
+        <button 
+          className="scroller-btn next-btn" 
+          aria-label="Next logos"
+          onClick={() => handleMove('next')}
+        >&gt;</button>
       </div>
     </section>
   );

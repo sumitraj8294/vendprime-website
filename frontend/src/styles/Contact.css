@@ -1,0 +1,144 @@
+/* src/styles/Contact.css */
+
+/* Using the same fonts and colors for consistency */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap");
+
+:root {
+  --color-primary: #1b1f3b; /* Dark Navy Blue */
+  --color-secondary: #ffd93d; /* Funky Yellow */
+  --color-text: #1c1c1c; /* Primary Text */
+  --color-text-light: #6c757d; /* Secondary Text */
+  --color-bg-light: #f7f8fa; /* Light Background */
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Montserrat", sans-serif;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Section Styling --- */
+.contact-section {
+  padding: 100px 20px;
+  background-color: var(--color-bg-light);
+  font-family: var(--font-body);
+  overflow: hidden;
+}
+
+.contact-section .section-title,
+.contact-section .section-subtitle {
+  text-align: center;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.contact-section .section-title {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+}
+
+.contact-section .section-subtitle {
+  color: var(--color-text-light);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 60px auto;
+  line-height: 1.7;
+  animation-delay: 0.2s;
+}
+
+/* --- Grid Layout --- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr; /* Details column is slightly smaller */
+  gap: 50px;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Left Column: Details --- */
+.contact-details {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 0.4s;
+}
+
+.details-title {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--color-primary);
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--color-secondary);
+  display: inline-block;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 25px;
+}
+
+.info-icon {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-right: 20px;
+  margin-top: 5px;
+}
+
+.info-text h4 {
+  font-size: 1.1rem;
+  color: var(--color-text);
+  margin: 0 0 5px 0;
+  font-weight: 600;
+}
+
+.info-text p {
+  font-size: 1rem;
+  color: var(--color-text-light);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* --- Right Column: Map --- */
+.contact-map {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 0.6s;
+  border-radius: 12px;
+  overflow: hidden; /* Clips the iframe to the border-radius */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  height: 400px; /* Set a fixed height */
+}
+
+.contact-map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+  .contact-grid {
+    grid-template-columns: 1fr; /* Stack columns on tablets and mobile */
+    gap: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 80px 15px;
+  }
+  .contact-section .section-title {
+    font-size: 2.2rem;
+  }
+}
