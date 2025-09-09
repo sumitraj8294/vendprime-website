@@ -21,7 +21,6 @@ function App() {
     const homeSections = ["home", "about", "services", "clients", "contact", "feedback"];
 
     if (homeSections.includes(activePage)) {
-      // render Home and tell it which section to scroll to
       setPageToRender("home");
       setScrollToSection(activePage);
     } else {
