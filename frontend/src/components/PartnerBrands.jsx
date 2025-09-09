@@ -1,7 +1,10 @@
+// PartnerBrands.jsx - MODIFIED
+
 import React from 'react';
 import '../styles/PartnerBrands.css';
 
-// Import all the brand logos
+// (Import all your brand logos here as before)
+// ...
 import laysLogo from '../assets/logos/brands/lays.png';
 import britaniaLogo from '../assets/logos/brands/britania.png';
 import bikajiLogo from '../assets/logos/brands/bikaji.png';
@@ -23,7 +26,10 @@ import redbullLogo from '../assets/logos/brands/redbull.png';
 import drOetkarLogo from '../assets/logos/brands/dr-oetkar.png';
 import bisleriLogo from '../assets/logos/brands/bisleri.png';
 
+
 const brands = [
+  // (Your brands array remains the same)
+  // ...
   { name: 'Lays', logoUrl: laysLogo },
   { name: 'Britania', logoUrl: britaniaLogo },
   { name: 'Bikaji', logoUrl: bikajiLogo },
@@ -47,17 +53,24 @@ const brands = [
 ];
 
 const PartnerBrands = () => {
+  // We combine the brands array with itself to create a duplicated list
+  const extendedBrands = [...brands, ...brands];
+
   return (
     <section className="brands-section">
       <div className="container">
         <h2 className="section-title">Featuring Popular Brands</h2>
-        {/* Using new, non-conflicting class names */}
-        <div className="brand-grid">
-          {brands.map((brand, index) => (
-            <div className="brand-card" key={index}>
-              <img src={brand.logoUrl} alt={`${brand.name} logo`} />
-            </div>
-          ))}
+        
+        {/* This wrapper is used to hide the overflow and create the fade effect */}
+        <div className="brand-scroller">
+          <div className="brand-grid">
+            {/* We map over the new, extended array */}
+            {extendedBrands.map((brand, index) => (
+              <div className="brand-card" key={index}>
+                <img src={brand.logoUrl} alt={`${brand.name} logo`} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -15,7 +15,7 @@ const ProductsSection = () => {
         "Chips, chocolates, biscuits, namkeen",
         "Soft drinks, juices, energy drinks, protein drinks",
         "Mineral water, tetra packs",
-        "Fruits , food and fresh juices"
+        "Fresh Fruits, food and juices"
       ],
       img: snacksImg,
     },

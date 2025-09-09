@@ -12,7 +12,7 @@ const MachineFeatures = () => {
   // Array for the features - easy to add, remove, or change items
   const features = [
     { icon: <FaQrcode />, text: 'Touchscreen or QR-based selection' },
-    { icon: <FaCreditCard />, text: 'Supports UPI, Card, and Cash payments' },
+    { icon: <FaCreditCard />, text: 'Supports UPI and Card payments' },
     { icon: <FaRegSnowflake />, text: 'Refrigerated and ambient storage' },
     { icon: <FaBoxOpen />, text: 'Capacity: 200—500+ items depending on model' },
     { icon: <FaChartLine />, text: 'Real-time inventory tracking' },

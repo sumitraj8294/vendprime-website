@@ -227,3 +227,31 @@
     transform: none;
   }
 }
+/* --- Connector Dot --- */
+.step-card .dot {
+  position: absolute;
+  top: 50%;
+  left: 0; /* align directly on the timeline */
+  transform: translate(-50%, -50%) scale(0.8);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--surface-alt);
+  border: 3px solid var(--line-bg);
+  box-shadow: 0 0 0 4px var(--surface-alt);
+  z-index: 2; /* keep above line */
+  transition: background-color 400ms ease, border-color 400ms ease,
+    transform 400ms ease;
+}
+
+/* When visible (timeline passed this step) → turn green */
+.step-card.is-visible .dot {
+  background: var(--color-green);
+  border-color: var(--color-green);
+  transform: translate(-50%, -50%) scale(1);
+  animation: dotPulse 1.5s infinite ease-in-out;
+}
+/* Remove timeline dots completely */
+.step-card .dot {
+  display: none;
+}

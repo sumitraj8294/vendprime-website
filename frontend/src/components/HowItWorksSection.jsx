@@ -27,7 +27,7 @@ const HowItWorksSection = () => {
     },
     {
       title: "Ongoing Care & Support",
-      desc: "Enjoy complete peace of mind. We handle all servicing, cleaning, and technical support to ensure it's always running perfectly.",
+      desc: "Enjoy complete peace of mind. We handle all servicing and technical support to ensure it's always running perfectly.",
       img: step4,
     },
   ];

@@ -48,7 +48,7 @@ function Footer() {
         <div className="footer-contact">
           <h4>Contact Us</h4>
           <p>Email: vendprime1@gmail.com</p>
-          <p>Phone: +91 86840 26137</p>
+          <p>Phone: +91 86840 26137, +91 80038 75282</p>
           <p>Address: G-2, PLOT NO G-4, EAGLE RESENDENCE, KHETAN SIKAR ROAD, PATH NO.6, Jaipur, Jaipur, Rajasthan, 302039</p>
         </div>
       </div>

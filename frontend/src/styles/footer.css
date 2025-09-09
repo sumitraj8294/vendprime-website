@@ -29,6 +29,9 @@
   font-size: 1.4rem;
   font-weight: 700;
 }
+.logo-text {
+  color: rgba(255, 255, 255, 0.868);
+}
 
 .footer-logo .highlight {
   color: #00b894; /* green highlight */
