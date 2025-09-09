@@ -12,7 +12,7 @@ function Navbar({ setPage }) {
   };
 
   return (
-    <nav className="navbar">
+    <nav className="navbar" id="home">
       {/* Logo */}
       <div className="navbar-logo" onClick={() => handleNavClick("home")}>
         {/* Make sure you have logo.png in your public folder */}

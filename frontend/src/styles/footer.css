@@ -1,8 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Bebas+Neue&family=Bungee&display=swap");
 .footer {
   background: #000; /* solid black */
   color: #fff;
   padding: 2rem 1rem 1rem;
-  font-family: "Poppins", sans-serif;
+  font-family: "Bungee", sans-serif;
+  font-weight: 200;
+  font-size: 10px;
+  font-style: normal;
 }
 
 .footer-content {
@@ -25,11 +29,11 @@
   object-fit: contain;
 }
 
-.footer-logo .logo-text {
+.footer-logo .logo-text-footer {
   font-size: 1.4rem;
   font-weight: 700;
 }
-.logo-text {
+.logo-text-footer {
   color: rgba(255, 255, 255, 0.868);
 }
 
@@ -110,4 +114,15 @@
   .footer-social .social-icons {
     justify-content: center;
   }
+}
+.footer-link {
+  cursor: pointer;
+  color: #ffffff; /* normal text color */
+  text-decoration: none;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #ffd93d; /* highlight color */
+  text-decoration: underline;
 }

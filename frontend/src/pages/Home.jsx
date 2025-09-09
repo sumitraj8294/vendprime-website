@@ -1,5 +1,4 @@
 // src/pages/Home.jsx
-
 import { useRef, useEffect } from "react";
 import AboutSection from "../components/AboutSection";
 import BenefitsSection from "../components/BenefitsSection";
@@ -11,10 +10,8 @@ import Clients from "../components/Clients";
 import Contact from "../components/Contact";
 import Feedback from "../components/Feedback";
 import PartnerBrands from "../components/PartnerBrands";
-// -----------------------------------------------------------------
 
-function Home({ scrollToSection }) {
-  // 1. Create a ref for every section linked in the navbar
+function Home({ scrollToSection, setScrollToSection }) {
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
   const servicesRef = useRef(null);
@@ -22,7 +19,6 @@ function Home({ scrollToSection }) {
   const contactRef = useRef(null);
   const feedbackRef = useRef(null);
 
-  // 2. Add useEffect to listen for prop changes and scroll
   useEffect(() => {
     const sectionRefs = {
       home: homeRef,
@@ -36,15 +32,18 @@ function Home({ scrollToSection }) {
     const targetRef = sectionRefs[scrollToSection];
 
     if (targetRef && targetRef.current) {
-      window.scrollTo({
-        top: targetRef.current.offsetTop, // Scroll to the top of the element
-        behavior: "smooth",
-      });
+      // scroll smoothly
+      targetRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      // clear the scroll target after animation (so clicking same link later still works)
+      if (setScrollToSection) {
+        const t = setTimeout(() => setScrollToSection(null), 600);
+        return () => clearTimeout(t);
+      }
     }
-  }, [scrollToSection]); // This effect runs every time scrollToSection changes
+  }, [scrollToSection, setScrollToSection]);
 
   return (
-    // 3. Attach the refs to a wrapper div around each section component
     <div>
       <div ref={homeRef}>
         <HeroSection />
