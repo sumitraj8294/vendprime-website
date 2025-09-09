@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
+import BackToTopButton from "./components/BackToTopButton";
 // import other pages if you have them:
 // import AboutPage from "./pages/AboutPage";
 
@@ -48,6 +49,7 @@ function App() {
       */}
 
       <Footer setPage={setActivePage} />
+      <BackToTopButton/>
     </>
   );
 }
