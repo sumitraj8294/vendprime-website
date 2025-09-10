@@ -37,10 +37,26 @@ const Clients = () => {
   return (
     <section id="clients" className="clients-section">
       <div className="container">
-        <h2 className="section-title">Trusted By Leading Organizations</h2>
-        <p className="section-subtitle">
+      <h2 className="section-title">
+  <span style={{ color: "#2d3436", fontWeight: "700" }}>
+    SUCCESSFULLY
+  </span>{" "}
+  <span
+    style={{
+      backgroundColor: "#00b894",
+      color: "#ffffff",
+      fontWeight: "700",
+      padding: "0 8px",
+      borderRadius: "6px",
+    }}
+  >
+    VENDING&nbsp;AT...
+  </span>
+</h2>
+
+        {/* <p className="section-subtitle">
           We are proud to partner with a diverse range of clients across various sectors.
-        </p>
+        </p> */}
 
         <div className="client-grid">
           {clients.map((client) => (

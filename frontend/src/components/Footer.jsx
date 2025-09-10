@@ -14,7 +14,7 @@ function Footer({ setPage }) {
         <div className="footer-logo" onClick={() => handleNavClick("home")}>
           <img src="/logo.png" alt="VendPrime Logo" />
           <span className="logo-text-footer">
-            Vend<span className="highlight">Prime</span>
+            VEND<span className="highlight">PRIME</span>
           </span>
           <p className="footer-tagline">Smart Vending Solutions for Everyone</p>
         </div>

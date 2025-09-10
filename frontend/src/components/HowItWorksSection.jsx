@@ -77,7 +77,7 @@ const HowItWorksSection = () => {
   return (
     <section className="howitworks" ref={sectionRef}>
       <div className="howitworks-container">
-        <h2>Your Hassle-Free Vending Solution</h2>
+        <h2>YOUR HASSLE-FREE VENDING SOLUTION</h2>
         <p className="howitworks-subtext">
           From installation to daily operations – we handle everything for you.
         </p>

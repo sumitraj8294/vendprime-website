@@ -59,7 +59,22 @@ const PartnerBrands = () => {
   return (
     <section className="brands-section">
       <div className="container">
-        <h2 className="section-title">Featuring Popular Brands</h2>
+      <h2 className="section-title">
+  <span style={{ color: "#2d3436", fontWeight: "700" }}>
+    FEATURING 
+  </span>{" "}
+  <span
+    style={{
+      backgroundColor: "#00b894",
+      color: "#ffffff",
+      fontWeight: "700",
+      padding: "0 8px",
+      borderRadius: "6px",
+    }}
+  >
+    POPULAR &nbsp;BRANDS
+  </span>
+</h2>
         
         {/* This wrapper is used to hide the overflow and create the fade effect */}
         <div className="brand-scroller">

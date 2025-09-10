@@ -33,7 +33,7 @@ const BenefitsSection = () => {
   return (
     <section className="benefits">
       <div className="benefits-container">
-        <h2>Why Choose Us?</h2>
+        <h2>WHY CHOOSE US?</h2>
         <p className="benefits-subtext">
           Discover the advantages of partnering with our smart vending solutions.
         </p>

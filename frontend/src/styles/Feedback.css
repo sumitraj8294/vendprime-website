@@ -39,8 +39,9 @@
 }
 
 .feedback-section .section-title {
-  font-family: var(--font-heading);
-  color: var(--color-primary);
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  font-style: normal;
   font-size: 2.8rem;
   margin-bottom: 20px;
 }
@@ -52,6 +53,9 @@
   margin: 0 auto 60px auto;
   line-height: 1.7;
   animation-delay: 0.2s;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 500;
+  font-style: normal;
 }
 
 .feedback-form {

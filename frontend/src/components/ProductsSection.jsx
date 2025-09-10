@@ -6,18 +6,25 @@ import snacksImg from "../assets/images/snacks/snacks.png";
 import stationeryImg from "../assets/images/snacks/stationary.png";
 import hygieneImg from "../assets/images/snacks/Hygeinie.png";
 import healthImg from "../assets/images/snacks/Health.png";
-
+import freshImg from "../assets/images/snacks/fresh.png";
 const ProductsSection = () => {
   const categories = [
     {
-      title: "Snacks, beverages & fresh food",
+      title: "Snacks & beverages",
       desc: [
         "Chips, chocolates, biscuits, namkeen",
         "Soft drinks, juices, energy drinks, protein drinks",
         "Mineral water, tetra packs",
-        "Fresh Fruits, food and juices"
       ],
       img: snacksImg,
+    },
+    {
+      title: "Fresh Foods",
+      desc: [
+        "Pens, pencils, notebooks, erasers",
+        "ID holders, sticky notes, markers",
+      ],
+      img: freshImg,
     },
     {
       title: "Stationery Essentials",
@@ -47,7 +54,7 @@ const ProductsSection = () => {
   return (
     <section className="products">
       <div className="products-container">
-        <h2>Product Categories We Stock</h2>
+        <h2>PRODUCT CATEGORIES WE STOCK</h2>
         <p className="products-subtext">
           Everything you need, right at your fingertips.
         </p>

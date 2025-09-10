@@ -13,7 +13,7 @@ const AboutSection = () => {
           />
         </div>
         <div className="about-content">
-          <h2>Smart Vending for Modern Spaces</h2>
+          <h2>SMART VENDING AT MODERN SPACES</h2>
           <p>
             We provide state-of-the-art vending machines with a wide range of
             snacks and drinks, tailored to your workplace, schools, gyms, and

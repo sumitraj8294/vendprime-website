@@ -48,10 +48,7 @@
 }
 
 .howitworks h2 {
-  font-size: clamp(2rem, 5vw, 2.6rem); /* Fluid typography */
-  background: linear-gradient(90deg, var(--color-darkblue), var(--color-pink));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: clamp(2rem, 5vw, 2.6rem);
   margin-bottom: 10px;
   text-align: center;
 }
