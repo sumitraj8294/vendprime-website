@@ -12,16 +12,16 @@ const HeroSection = () => {
       <section className="hero">
         <div className="hero-overlay">
           <div className="hero-content">
-            {/* The h2 and span now use classes from the CSS file */}
-            <h2 style={{ fontSize: "3.5rem", fontWeight: "bold", letterSpacing: "3px", color: "white" }}>
-  VEND
-  <span style={{ backgroundColor: "#00796b", color: "white", padding: "0 0.5rem", borderRadius: "5px" }}>
-    PRIME
-  </span>
-</h2>
+            {/* 👇 The inline style prop has been removed from h2 */}
+            <h2>
+              VEND
+              {/* 👇 The inline style is replaced with the "highlight" class */}
+              <span className="highlight">
+                PRIME
+              </span>
+            </h2>
 
-
-            <p className="hero-tagline">TOUCH•TAP•TAKE</p>
+            <p className="hero-tagline">TOUCH • TAP • TAKE</p>
 
             <p className="hero-description">
               24/7 access to snacks, beverages, and essentials. Hassle-free setup,

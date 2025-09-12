@@ -18,11 +18,14 @@
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4); /* Restored overlay for text readability */
+  background: rgba(0, 0, 0, 0); /* Restored overlay for text readability */
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 1.5rem;
+  color: white;
+  font-size: 20px;
+  margin-top: -10px;
 }
 
 .hero-content {
@@ -43,9 +46,13 @@
 }
 
 /* 👇 New class for the styled "PRIME" text */
+/* styles/hero.css */
+
+/* ... (keep existing styles from .hero to .hero-content h2) ... */
+
+/* Ensure this class uses the correct gold color */
 .hero-content h2 .highlight {
-  background-color: #ffd93d;
-  color: #2d3436;
+  color: rgb(26, 255, 186); /* Dark text for contrast */
   padding: 0 0.5rem;
   border-radius: 5px;
 }
@@ -55,72 +62,35 @@
   font-weight: 500;
   color: #f1f1f1;
   margin-bottom: 1.5rem;
-  letter-spacing: 2px;
+  /* 👇 Increased spacing for better readability */
+  letter-spacing: 4px;
+  margin-top: -20px;
 }
 
-.hero-content .hero-description {
-  font-size: 1.2rem;
-  margin-bottom: 2.5rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  color: #f1f1f1;
-}
+/* ... (keep existing .hero-description style) ... */
 
 .btn-primary {
-  background: rgb(255, 24, 24);
-  color: white;
+  /* 👇 Changed background to match the "PRIME" highlight */
+  background: #26bf5e;
+  /* 👇 Darker text for better contrast on a gold background */
+  color: #ffffff;
   padding: 0.8rem 1.6rem;
   font-size: 1.2rem;
   font-weight: bold;
-  border: none;
+  /* 👇 Added a border for the new hover effect */
+  border: 2px solid #165b3250;
   border-radius: 30px;
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-top: 50px;
 }
 
 .btn-primary:hover {
-  background: rgb(39, 164, 30);
+  /* 👇 Modern hover effect: background becomes transparent */
+  background: green;
+  /* 👇 Text color changes to gold */
+  color: #ededed;
   transform: translateY(-3px);
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* --- Responsive --- */
-@media (max-width: 768px) {
-  .hero {
-    background-image: url("../assets/images/hero_mini.png");
-  }
-  .hero-content {
-    margin-top: -70px;
-  }
-
-  /* 👇 Selector updated from h1 to h2 */
-  .hero-content h2 {
-    font-size: 2.5rem;
-    letter-spacing: 2px;
-    padding: 0 1rem;
-    margin-bottom: 20px;
-  }
-
-  .hero-content .hero-tagline {
-    font-size: 1.25rem;
-    padding: 0 1rem;
-    margin-bottom: 20px;
-  }
-
-  .hero-content .hero-description {
-    font-size: 1rem;
-    padding: 0 1rem;
-    margin-bottom: 20px;
-  }
-}
+/* ... (keep existing keyframes and responsive styles) ... */
