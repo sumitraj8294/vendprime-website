@@ -26,7 +26,7 @@
 
 .feedback-section {
   padding: 100px 20px;
-  background-color: #fff;
+  background-color: #e3f4ed;
   font-family: var(--font-body);
   overflow: hidden;
 }
@@ -132,7 +132,7 @@ textarea {
   font-size: 1.1rem;
   font-weight: 600;
   color: white;
-  background-color: red;
+  background: #259b68;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -143,7 +143,7 @@ textarea {
 }
 
 .btn-submit:hover {
-  background-color: green; /* Slightly darker yellow */
+  background-color: rgb(27, 144, 31); /* Slightly darker yellow */
   transform: translateY(-3px);
 }
 

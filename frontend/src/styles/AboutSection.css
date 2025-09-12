@@ -7,7 +7,7 @@
   --color-heading: #2d3436;
   --color-text: #636e72;
   --color-shadow: rgba(0, 0, 0, 0.08);
-  --font-family: "Poppins", sans-serif; /* Recommended for a modern look */
+  --font-family: "Poppins", sans-serif;
 }
 
 /* --- Keyframe Animations --- */
@@ -47,7 +47,7 @@
 /* --- Main Section Styling --- */
 .about {
   padding: 5rem 2rem;
-  background: var(--color-background);
+  background: rgb(255, 255, 255);
   color: var(--color-heading);
   font-family: var(--font-family);
   overflow-x: hidden; /* Important for containing animations */

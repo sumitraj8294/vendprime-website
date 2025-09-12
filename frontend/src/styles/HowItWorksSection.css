@@ -37,7 +37,7 @@
 /* --- Section Styling --- */
 .howitworks {
   padding: 80px 20px;
-  background: var(--surface-alt);
+  background-color: #e3f4ed;
   font-family: "Poppins", sans-serif; /* Recommended for a modern feel */
   overflow: hidden;
 }

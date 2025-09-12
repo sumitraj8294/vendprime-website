@@ -23,13 +23,14 @@
 }
 
 .footer-logo img {
-  width: 55px;
-  height: 55px;
+  width: 100px;
+  height: 100px;
+  align-items: center;
   object-fit: contain;
 }
 
 .footer-logo .logo-text-footer {
-  font-size: 1.4rem;
+  font-size: 1.7rem;
   font-weight: 700;
 }
 .logo-text-footer {
@@ -42,7 +43,8 @@
 
 .footer-logo .footer-tagline {
   font-size: 0.9rem;
-  color: #bbb;
+  margin-top: -10px;
+  color: #ffffff;
 }
 
 .footer-links h4,
@@ -112,6 +114,21 @@
 
   .footer-social .social-icons {
     justify-content: center;
+  }
+  /* ✅ Responsive */
+  @media (max-width: 768px) {
+    .footer-content {
+      text-align: center;
+    }
+
+    .footer-logo {
+      /* 👇 This line will center the image and text inside the logo container */
+      align-items: center;
+    }
+
+    .footer-social .social-icons {
+      justify-content: center;
+    }
   }
 }
 .footer-link {

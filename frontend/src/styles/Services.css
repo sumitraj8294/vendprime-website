@@ -42,7 +42,7 @@
 
 /* --- Main Section Styling --- */
 .features-section {
-  background-color: var(--color-bg);
+  background-color: #e3f4ed;
   padding: 80px 20px;
   text-align: center;
   font-family: var(--font-body);

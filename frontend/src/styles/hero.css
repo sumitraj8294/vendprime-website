@@ -1,4 +1,26 @@
 /* styles/hero.css */
+body {
+  /* Resets default browser margin */
+  margin: 0;
+
+  /* Sets the background image */
+  background-image: url("../assets/images/hero.png");
+
+  /* Ensures the image covers the entire viewport without distortion */
+  background-size: cover;
+
+  /* Centers the image horizontally and vertically */
+  background-position: center center;
+
+  /* Prevents the image from repeating if it's smaller than the screen */
+  background-repeat: no-repeat;
+
+  /* Fixes the background image, creating a parallax effect on scroll */
+  background-attachment: fixed;
+
+  /* Ensures the body takes up at least the full height of the screen */
+  min-height: 100vh;
+}
 
 .hero {
   position: relative;
@@ -25,7 +47,7 @@
   padding: 0 1.5rem;
   color: white;
   font-size: 20px;
-  margin-top: -10px;
+  padding: 30px;
 }
 
 .hero-content {
@@ -33,6 +55,7 @@
   text-align: center;
   /* The entrance animation remains */
   animation: fadeInUp 1.2s ease-in-out;
+  margin-top: -50px;
 }
 
 /* 👇 Styles from your h2 have been moved here */
@@ -52,7 +75,7 @@
 
 /* Ensure this class uses the correct gold color */
 .hero-content h2 .highlight {
-  color: rgb(26, 255, 186); /* Dark text for contrast */
+  color: #42e69a; /* Dark text for contrast */
   padding: 0 0.5rem;
   border-radius: 5px;
 }
@@ -71,26 +94,65 @@
 
 .btn-primary {
   /* 👇 Changed background to match the "PRIME" highlight */
-  background: #26bf5e;
+  background: #259b68;
   /* 👇 Darker text for better contrast on a gold background */
   color: #ffffff;
   padding: 0.8rem 1.6rem;
   font-size: 1.2rem;
   font-weight: bold;
   /* 👇 Added a border for the new hover effect */
-  border: 2px solid #165b3250;
+  border: 2px solid #867e5f6f;
   border-radius: 30px;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: 50px;
 }
 
 .btn-primary:hover {
   /* 👇 Modern hover effect: background becomes transparent */
-  background: green;
+  background: rgb(20, 147, 20);
   /* 👇 Text color changes to gold */
-  color: #ededed;
+  color: #ffffff;
   transform: translateY(-3px);
 }
 
 /* ... (keep existing keyframes and responsive styles) ... */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .hero {
+    background-image: url("../assets/images/hero_mini.png");
+  }
+  .hero-content {
+    margin-top: -70px;
+  }
+
+  /* 👇 Selector updated from h1 to h2 */
+  .hero-content h2 {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    padding: 0 1rem;
+    margin-bottom: 20px;
+  }
+
+  .hero-content .hero-tagline {
+    font-size: 1.25rem;
+    padding: 0 1rem;
+    margin-bottom: 20px;
+  }
+
+  .hero-content .hero-description {
+    font-size: 1rem;
+    padding: 0 1rem;
+    margin-bottom: 20px;
+  }
+}

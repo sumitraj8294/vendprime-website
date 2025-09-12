@@ -16,7 +16,7 @@ function Footer({ setPage }) {
           <span className="logo-text-footer">
             VEND<span className="highlight">PRIME</span>
           </span>
-          <p className="footer-tagline">Smart Vending Solutions for Everyone</p>
+          <p className="footer-tagline">TOUCH • TAP • TAKE</p>
         </div>
 
         {/* Quick Links */}
@@ -33,7 +33,7 @@ function Footer({ setPage }) {
         </div>
 
         {/* Social Media Links */}
-        <div className="footer-social">
+        {/* <div className="footer-social">
           <h4>Follow Us</h4>
           <div className="social-icons">
             <a href="#" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
@@ -41,7 +41,7 @@ function Footer({ setPage }) {
             <a href="#" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
             <a href="#" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
           </div>
-        </div>
+        </div> */}
 
         {/* Contact Info */}
         <div className="footer-contact">
