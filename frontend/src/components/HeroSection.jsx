@@ -1,48 +1,33 @@
 // src/components/HeroSection.js
 
-import React, { useEffect, useState } from "react";
-// ❌ We no longer need useNavigate for this button
-// import { useNavigate } from "react-router-dom"; 
+import React, { useState } from "react";
 import "../styles/hero.css";
-import ContactModal from "./ContactModal"; // 👈 1. Import the new modal component
+import ContactModal from "./ContactModal";
 
 const HeroSection = () => {
-  const [offsetY, setOffsetY] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false); // 👈 2. State to manage modal
-
-  // This effect for the parallax scroll remains unchanged
-  useEffect(() => {
-    const handleScroll = () => setOffsetY(window.scrollY);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <> {/* 👈 Use a Fragment to wrap section and modal */}
-      <section
-        className="hero"
-        style={{
-          backgroundPositionY: `${offsetY * 0.3}px`,
-        }}
-      >
-        <div
-          className="hero-overlay"
-          style={{
-            transform: `translateY(${offsetY * -0.3}px)`,
-          }}
-        >
-          <div
-            className="hero-content"
-            style={{
-              transform: `translateY(${offsetY * -0.2}px)`,
-            }}
-          >
-            <h1>VendPrime - Smart Vending, Simplified</h1>
-            <p>
+    <>
+      <section className="hero">
+        <div className="hero-overlay">
+          <div className="hero-content">
+            {/* The h2 and span now use classes from the CSS file */}
+            <h2 style={{ fontSize: "3.5rem", fontWeight: "bold", letterSpacing: "3px", color: "white" }}>
+  VEND
+  <span style={{ backgroundColor: "#00796b", color: "white", padding: "0 0.5rem", borderRadius: "5px" }}>
+    PRIME
+  </span>
+</h2>
+
+
+            <p className="hero-tagline">TOUCH•TAP•TAKE</p>
+
+            <p className="hero-description">
               24/7 access to snacks, beverages, and essentials. Hassle-free setup,
-              stocking, and maintenance – we handle everything.
+              stocking, and maintenance, we handle everything.
             </p>
-            {/* 👇 3. Update the button text, size (in CSS), and onClick handler */}
+
             <button className="btn-primary" onClick={() => setIsModalOpen(true)}>
               Contact Now
             </button>
@@ -50,7 +35,6 @@ const HeroSection = () => {
         </div>
       </section>
 
-      {/* 👇 4. Render the modal component */}
       <ContactModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 

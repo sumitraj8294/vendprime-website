@@ -9,23 +9,23 @@ import benefit4 from "../assets/icons/cashless.png";
 const BenefitsSection = () => {
   const benefits = [
     {
-      title: "Ultimate Convenience",
-      desc: "Snacks, beverages & essentials available 24/7 right where you need them.",
+      title: "Maximum Ease",
+      desc: "Get snacks, drinks, and essentials anytime, right where you are.",
       img: benefit1,
     },
     {
-      title: "Wide Variety",
-      desc: "From chips and chocolates to stationery and hygiene products – all in one machine.",
+      title: "Wide Product Variety",
+      desc: "Enjoy chips, chocolates, stationery, and hygiene products all in one.",
       img: benefit2,
     },
     {
-      title: "Reliable Support",
-      desc: "Quick restocking, regular maintenance, and dedicated customer care.",
+      title: "Reliable Assistance",
+      desc: "Fast restocking, regular maintenance, and friendly customer support.",
       img: benefit3,
     },
     {
-      title: "Smart & Cashless",
-      desc: "Seamless digital payments with UPI, cards, and wallets.",
+      title: "Cashless Payments",
+      desc: "Pay easily using UPI, cards, or digital wallets without any hassle.",
       img: benefit4,
     },
   ];
@@ -34,9 +34,6 @@ const BenefitsSection = () => {
     <section className="benefits">
       <div className="benefits-container">
         <h2>WHY CHOOSE US?</h2>
-        <p className="benefits-subtext">
-          Discover the advantages of partnering with our smart vending solutions.
-        </p>
 
         <div className="benefits-grid">
           {benefits.map((b, index) => (

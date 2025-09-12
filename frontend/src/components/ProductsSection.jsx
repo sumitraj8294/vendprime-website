@@ -21,8 +21,8 @@ const ProductsSection = () => {
     {
       title: "Fresh Foods",
       desc: [
-        "Pens, pencils, notebooks, erasers",
-        "ID holders, sticky notes, markers",
+        "Fresh fruits, salads and wholesome snacks",
+        "Dairy favorites and refreshing juices",
       ],
       img: freshImg,
     },

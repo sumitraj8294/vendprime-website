@@ -43,20 +43,13 @@ const Clients = () => {
   </span>{" "}
   <span
     style={{
-      backgroundColor: "#00b894",
-      color: "#ffffff",
+      color: "#00b894",
       fontWeight: "700",
-      padding: "0 8px",
-      borderRadius: "6px",
     }}
   >
     VENDING&nbsp;AT...
   </span>
 </h2>
-
-        {/* <p className="section-subtitle">
-          We are proud to partner with a diverse range of clients across various sectors.
-        </p> */}
 
         <div className="client-grid">
           {clients.map((client) => (

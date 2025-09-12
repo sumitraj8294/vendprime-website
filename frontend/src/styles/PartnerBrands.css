@@ -4,9 +4,6 @@
 .brands-section {
   padding: 80px 0;
   background-color: #fff;
-  padding-left: 0;
-  padding-right: 0;
-  overflow: hidden; /* Helps contain the elements smoothly */
 }
 
 .section-title {
@@ -19,43 +16,56 @@
   font-style: normal;
 }
 
-/* The scroller container */
-.brand-scroller {
-  /* This setup makes the scroller span the full browser width */
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
+/* The scroller container - this is what the user can scroll by hand */
+.scroller {
+  /* No specific width needed, it will be contained by its parent */
+  overflow-x: auto; /* THIS IS KEY: Always allow horizontal scrolling */
+  -webkit-mask: linear-gradient(
+    90deg,
+    transparent,
+    white 20%,
+    white 80%,
+    transparent
+  );
+  mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+}
 
-  overflow-x: auto;
+/* Hide scrollbar for a cleaner look */
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+.scroller {
   scrollbar-width: none; /* For Firefox */
-  -ms-overflow-style: none; /* For Internet Explorer and Edge */
-}
-.brand-scroller::-webkit-scrollbar {
-  display: none; /* For Chrome, Safari, and Opera */
+  -ms-overflow-style: none; /* For IE and Edge */
 }
 
-/* The grid that holds and animates the logos */
-.brand-grid {
+/* The inner wrapper that holds the items and the animation */
+.scroller__inner {
   display: flex;
   flex-wrap: nowrap;
   gap: 3rem;
+  padding-block: 1rem;
+}
 
-  /* Faster animation speed */
-  animation: scroll 10s linear infinite;
+/* This is where the magic happens: the animation is ONLY applied when JS adds the attribute */
+.scroller[data-animated="true"] .scroller__inner {
+  /* Animate based on the width of its content */
+  width: max-content;
+  /* The animation itself */
+  animation: scroll 55s linear infinite;
+}
+
+/* Pause animation on hover of the entire scroller component */
+.scroller:hover .scroller__inner {
+  animation-play-state: paused;
 }
 
 /* Define the scrolling animation */
 @keyframes scroll {
-  0% {
-    transform: translateX(0);
+  to {
+    /* Moves the inner element to the left. The `*-1` is crucial. */
+    transform: translate(calc(-50%));
   }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-/* Pause the animation when the user hovers over the scroller */
-.brand-scroller:hover .brand-grid {
-  animation-play-state: paused;
 }
 
 /* Styling for individual brand logos */
@@ -67,7 +77,6 @@
 }
 
 .brand-card img {
-  /* Larger logo size for desktops */
   max-height: 95px;
   max-width: 220px;
   object-fit: contain;
@@ -79,7 +88,7 @@
 }
 
 /* --- RESPONSIVE ADJUSTMENTS --- */
-/* For tablets and smaller devices */
+/* (Your responsive media queries can remain exactly the same) */
 @media (max-width: 768px) {
   .brands-section {
     padding: 60px 0;
@@ -88,17 +97,15 @@
     font-size: 2rem;
     margin-bottom: 50px;
   }
-  .brand-grid {
-    gap: 2.5rem; /* Reduce gap between logos */
+  .scroller__inner {
+    gap: 2.5rem;
   }
   .brand-card img {
-    /* Reduce logo size for tablets */
     max-height: 70px;
     max-width: 160px;
   }
 }
 
-/* For mobile phones */
 @media (max-width: 480px) {
   .brands-section {
     padding: 50px 0;
@@ -107,12 +114,28 @@
     font-size: 1.8rem;
     margin-bottom: 40px;
   }
-  .brand-grid {
-    gap: 2rem; /* Further reduce gap for small screens */
+  .scroller__inner {
+    gap: 2rem;
   }
   .brand-card img {
-    /* Further reduce logo size for phones */
     max-height: 55px;
     max-width: 120px;
+  }
+  /* On mobile, make the fade-out effect smaller */
+  .scroller {
+    -webkit-mask: linear-gradient(
+      90deg,
+      transparent,
+      white 10%,
+      white 90%,
+      transparent
+    );
+    mask: linear-gradient(
+      90deg,
+      transparent,
+      white 10%,
+      white 90%,
+      transparent
+    );
   }
 }

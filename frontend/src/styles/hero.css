@@ -1,54 +1,69 @@
+/* styles/hero.css */
+
 .hero {
   position: relative;
   height: 100vh;
-  /* 👇 1. Set the default, larger background image here */
   background-image: url("../assets/images/hero.png");
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* helps parallax on desktop */
+  /* 👇 Set to scroll for standard, non-fixed behavior */
+  background-attachment: scroll;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-white);
   overflow: hidden;
-  will-change: background-position, transform;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(
-    0,
-    0,
-    0,
-    0
-  ); /* Slightly darker overlay for better text visibility */
+  background: rgba(0, 0, 0, 0.4); /* Restored overlay for text readability */
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 1.5rem;
-  transition: transform 0.2s ease-out;
-  will-change: transform;
 }
 
 .hero-content {
-  max-width: 700px;
+  max-width: 750px;
   text-align: center;
+  /* The entrance animation remains */
   animation: fadeInUp 1.2s ease-in-out;
-  transition: transform 0.2s ease-out;
-  will-change: transform;
 }
 
-.hero-content h1 {
-  font-size: 3rem;
-  line-height: 1.2;
+/* 👇 Styles from your h2 have been moved here */
+.hero-content h2 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  letter-spacing: 3px;
+  color: white;
+  text-transform: uppercase;
   margin-bottom: 1rem;
-  color: #fff;
 }
 
-.hero-content p {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
+/* 👇 New class for the styled "PRIME" text */
+.hero-content h2 .highlight {
+  background-color: #ffd93d;
+  color: #2d3436;
+  padding: 0 0.5rem;
+  border-radius: 5px;
+}
+
+.hero-content .hero-tagline {
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: #f1f1f1;
+  margin-bottom: 1.5rem;
+  letter-spacing: 2px;
+}
+
+.hero-content .hero-description {
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
   color: #f1f1f1;
 }
 
@@ -66,11 +81,9 @@
 
 .btn-primary:hover {
   background: rgb(39, 164, 30);
-  color: #fff;
   transform: translateY(-3px);
 }
 
-/* Animation */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -82,22 +95,32 @@
   }
 }
 
-/* Responsive */
+/* --- Responsive --- */
 @media (max-width: 768px) {
   .hero {
-    /* 👇 2. Swap to the smaller image on screens 768px or less */
     background-image: url("../assets/images/hero_mini.png");
-
-    /* 👇 3. IMPORTANT: 'fixed' is often buggy on mobile. 'scroll' is a safer choice. */
-    background-attachment: scroll;
+  }
+  .hero-content {
+    margin-top: -70px;
   }
 
-  .hero-content h1 {
-    font-size: 2rem;
-    padding: 0px 41px 0px 41px;
+  /* 👇 Selector updated from h1 to h2 */
+  .hero-content h2 {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    padding: 0 1rem;
+    margin-bottom: 20px;
   }
-  .hero-content p {
+
+  .hero-content .hero-tagline {
+    font-size: 1.25rem;
+    padding: 0 1rem;
+    margin-bottom: 20px;
+  }
+
+  .hero-content .hero-description {
     font-size: 1rem;
-    padding: 0px 40px 0px 40px;
+    padding: 0 1rem;
+    margin-bottom: 20px;
   }
 }

@@ -7,7 +7,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: #ffffffe1; /* Always white */
+  background-color: #ffffff; /* Always white */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -38,7 +38,7 @@ body {
 }
 
 .logo-text .highlight {
-  color: #00b894; /* brand accent color */
+  color: teal; /* brand accent color */
 }
 
 /* Desktop Links */

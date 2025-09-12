@@ -13,12 +13,9 @@ const AboutSection = () => {
           />
         </div>
         <div className="about-content">
-          <h2>SMART VENDING AT MODERN SPACES</h2>
+          <h2>SMART VENDING AT YOUR SPACE</h2>
           <p>
-            We provide state-of-the-art vending machines with a wide range of
-            snacks and drinks, tailored to your workplace, schools, gyms, and
-            public spaces. Our machines are fully automated, cashless, and
-            available 24/7.
+          We bring you modern vending machines stocked with a wide variety of snacks and drinks, perfect for workplaces, schools, gyms, and public spaces. Our machines are easy to use, completely cashless and always available - 24/7.
           </p>
           <div className="about-highlights">
             <div className="highlight-card">
@@ -27,12 +24,16 @@ const AboutSection = () => {
             </div>
             <div className="highlight-card">
               <h3>🥗 Healthy Options</h3>
-              <p>Choose from a wide variety of snacks & drinks for everyone.</p>
+              <p>Healthy snacks and fresh foods, anytime you need them.</p>
             </div>
             <div className="highlight-card">
               <h3>🕒 24/7 Availability</h3>
               <p>Always accessible, anytime you need a quick snack or drink.</p>
             </div>
+            <div className="highlight-card">
+  <h3>⭐ Trusted Brands</h3>
+  <p>Only the snacks and drinks you already know and love.</p>
+</div>
           </div>
         </div>
       </div>

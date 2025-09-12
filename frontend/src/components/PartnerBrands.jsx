@@ -1,10 +1,9 @@
 // PartnerBrands.jsx - MODIFIED
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import '../styles/PartnerBrands.css';
 
 // (Import all your brand logos here as before)
-// ...
 import laysLogo from '../assets/logos/brands/lays.png';
 import britaniaLogo from '../assets/logos/brands/britania.png';
 import bikajiLogo from '../assets/logos/brands/bikaji.png';
@@ -26,10 +25,8 @@ import redbullLogo from '../assets/logos/brands/redbull.png';
 import drOetkarLogo from '../assets/logos/brands/dr-oetkar.png';
 import bisleriLogo from '../assets/logos/brands/bisleri.png';
 
-
 const brands = [
   // (Your brands array remains the same)
-  // ...
   { name: 'Lays', logoUrl: laysLogo },
   { name: 'Britania', logoUrl: britaniaLogo },
   { name: 'Bikaji', logoUrl: bikajiLogo },
@@ -53,39 +50,58 @@ const brands = [
 ];
 
 const PartnerBrands = () => {
-  // We combine the brands array with itself to create a duplicated list
-  const extendedBrands = [...brands, ...brands];
+  const scrollerRef = useRef(null);
+
+  useEffect(() => {
+    const scroller = scrollerRef.current;
+    if (!scroller) return;
+
+    // 1. Check if animation is preferred
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    // 2. Set the data-animated attribute to start the CSS animation
+    scroller.setAttribute('data-animated', true);
+
+    // 3. Duplicate the logos for a seamless loop
+    const scrollerInner = scroller.querySelector('.scroller__inner');
+    const scrollerContent = Array.from(scrollerInner.children);
+
+    scrollerContent.forEach((item) => {
+      const duplicatedItem = item.cloneNode(true);
+      // aria-hidden to prevent screen readers from reading duplicates
+      duplicatedItem.setAttribute('aria-hidden', true); 
+      scrollerInner.appendChild(duplicatedItem);
+    });
+
+  }, []); // Empty dependency array ensures this runs only once on mount
 
   return (
     <section className="brands-section">
       <div className="container">
       <h2 className="section-title">
-  <span style={{ color: "#2d3436", fontWeight: "700" }}>
-    FEATURING 
-  </span>{" "}
-  <span
-    style={{
-      backgroundColor: "#00b894",
-      color: "#ffffff",
-      fontWeight: "700",
-      padding: "0 8px",
-      borderRadius: "6px",
-    }}
-  >
-    POPULAR &nbsp;BRANDS
-  </span>
-</h2>
-        
-        {/* This wrapper is used to hide the overflow and create the fade effect */}
-        <div className="brand-scroller">
-          <div className="brand-grid">
-            {/* We map over the new, extended array */}
-            {extendedBrands.map((brand, index) => (
-              <div className="brand-card" key={index}>
-                <img src={brand.logoUrl} alt={`${brand.name} logo`} />
-              </div>
-            ))}
-          </div>
+          <span style={{ color: '#2d3436', fontWeight: '700' }}>
+            FEATURING
+          </span>{' '}
+          <span
+            style={{
+              color: '#00b894',
+              fontWeight: '700',
+            }}
+          >
+            POPULAR&nbsp;BRANDS
+          </span>
+        </h2>
+      </div>
+
+      {/* The ref is attached to the main scroller container */}
+      <div className="scroller" ref={scrollerRef}>
+        <div className="scroller__inner">
+          {brands.map((brand, index) => (
+            <div className="brand-card" key={index}>
+              <img src={brand.logoUrl} alt={`${brand.name} logo`} />
+            </div>
+          ))}
         </div>
       </div>
     </section>

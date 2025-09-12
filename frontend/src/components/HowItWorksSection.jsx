@@ -17,7 +17,7 @@ const HowItWorksSection = () => {
     },
     {
       title: "Machine Installation",
-      desc: "Our expert team delivers and installs a state-of-the-art vending machine at your location.",
+      desc: "Our friendly team will personally deliver and set up a cutting-edge vending machine right at your location.",
       img: step2,
     },
     {
