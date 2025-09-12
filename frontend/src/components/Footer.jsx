@@ -47,10 +47,9 @@ function Footer({ setPage }) {
         <div className="footer-contact">
           <h4>Contact Us</h4>
           <p>Email: vendprime1@gmail.com</p>
-          <p>Phone: +91 86840 26137, +91 80038 75282</p>
+          <p>Phone:+918684026137,+918003875282</p>
           <p>
-            Address: G-2, PLOT NO G-4, EAGLE RESENDENCE, KHETAN SIKAR ROAD, 
-            PATH NO.6, Jaipur, Jaipur, Rajasthan, 302039
+            Address: G2, GROUND FLOOR, EAGLE RESIDENCE, PLOT NO. G4, PATH NO. 6, VIJAYBARI, SIKAR ROAD, JAIPUR, RAJASTHAN - 302039. INDIA
           </p>
         </div>
       </div>

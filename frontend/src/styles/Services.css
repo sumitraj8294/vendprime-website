@@ -59,7 +59,6 @@
 .section-subtitle {
   font-family: var(--font-heading);
   color: var(--color-primary);
-  /* Animation Setup */
   opacity: 0;
   animation: fadeInUp 0.8s ease forwards;
 }
@@ -94,7 +93,6 @@
   box-shadow: 0 4px 15px var(--color-shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-  /* Animation Setup */
   opacity: 0;
   animation: fadeInUp 0.6s ease forwards;
 }
@@ -124,28 +122,19 @@
   animation-delay: 0.7s;
 }
 
+/* --- MODIFIED FOR PNG LOGOS --- */
 .feature-icon {
-  font-size: 3rem;
   margin-bottom: 20px;
   line-height: 1;
-  color: var(--color-secondary); /* Default icon color */
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Funky: Cycle through accent colors for icons */
-.feature-card:nth-child(2) .feature-icon {
-  color: var(--color-pink);
-}
-.feature-card:nth-child(3) .feature-icon {
-  color: var(--color-blue);
-}
-.feature-card:nth-child(4) .feature-icon {
-  color: var(--color-green);
-}
-.feature-card:nth-child(5) .feature-icon {
-  color: var(--color-red);
-}
-.feature-card:nth-child(6) .feature-icon {
-  color: var(--color-secondary-alt);
+.feature-icon img {
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .feature-text {
@@ -153,9 +142,7 @@
   color: var(--color-text);
   line-height: 1.6;
   font-weight: 600;
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 600;
-  font-style: normal;
+  font-family: var(--font-body);
 }
 
 /* --- Locations Section & Animated Tags --- */
@@ -170,7 +157,7 @@
   background-color: var(--color-primary);
   color: var(--color-secondary);
   padding: 12px 25px;
-  border-radius: 50px; /* Pill shape */
+  border-radius: 50px;
   font-weight: 600;
   font-size: 1rem;
   display: inline-flex;
@@ -179,7 +166,6 @@
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
   cursor: pointer;
 
-  /* Animation Setup */
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.5s ease forwards;
@@ -240,7 +226,7 @@
   }
   .features-grid {
     grid-template-columns: 1fr;
-  } /* Stack cards */
+  }
   .location-tag {
     padding: 10px 20px;
     font-size: 0.9rem;

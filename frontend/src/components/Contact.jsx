@@ -21,7 +21,7 @@ const Contact = () => {
               <FaMapMarkerAlt className="info-icon" />
               <div className="info-text">
                 <h4>Address</h4>
-                <p>G-2, PLOT NO G-4, EAGLE RESENDENCE, KHETAN SIKAR ROAD, PATH NO.6, Jaipur, Jaipur, Rajasthan, 302039</p>
+                <p>G2,GROUND FLOOR,EAGLE RESIDENCE,PLOT NO.G4,PATH NO.6,VIJAYBARI,SIKAR ROAD,JAIPUR, RAJASTHAN-302039.INDIA</p>
               </div>
             </div>
             <div className="info-item">
@@ -44,16 +44,17 @@ const Contact = () => {
           {/* Right Column: Google Map */}
           <div className="contact-map">
             {/* 👇 CORRECTED IFRAME using your coordinates 👇 */}
-            <iframe 
-              src="https://maps.google.com/maps?q=26.959238,75.7618656&z=15&output=embed"
-              width="600" 
-              height="450" 
-              style={{ border: 0 }} 
-              allowFullScreen="" 
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
-              title="VendPrime Location in Jaipur"
-            ></iframe>
+            <iframe
+  src="https://maps.google.com/maps?q=26.958221,75.767159&z=15&output=embed"
+  width="600"
+  height="450"
+  style={{ border: 0 }}
+  allowFullScreen=""
+  loading="lazy"
+  referrerPolicy="no-referrer-when-downgrade"
+  title="VendPrime Location in Jaipur"
+></iframe>
+
           </div>
         </div>
       </div>

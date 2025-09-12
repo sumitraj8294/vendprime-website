@@ -61,7 +61,7 @@ const Feedback = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="John Doe"
+                placeholder="Rohit Gupta"
                 required
               />
             </div>
@@ -86,7 +86,7 @@ const Feedback = () => {
               name="subject"
               value={formData.subject}
               onChange={handleChange}
-              placeholder="e.g., Service Inquiry"
+              placeholder="I want vending service at my office"
               required
             />
           </div>
