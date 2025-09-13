@@ -20,7 +20,6 @@
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-  margin-right: 200px;
 }
 
 .footer-logo img {
@@ -127,14 +126,24 @@
   @media (max-width: 768px) {
     .footer-content {
       text-align: center;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* centers child elements horizontally */
+      justify-content: center; /* centers vertically if needed */
     }
 
     .footer-logo {
+      display: flex;
       align-items: center;
+      justify-content: center; /* ensures logo itself is centered */
+      margin-bottom: 1rem; /* optional spacing */
     }
 
     .footer-social .social-icons {
-      justify-content: center;
+      display: flex;
+      justify-content: center; /* center social icons in a row */
+      gap: 1rem; /* spacing between icons */
     }
   }
 }
