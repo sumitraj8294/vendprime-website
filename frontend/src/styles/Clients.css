@@ -1,10 +1,7 @@
-/* --- Clients.css --- */
-
-/* General Section Styling */
 .clients-section {
   padding: 80px 20px;
   text-align: center;
-  background-color: #e3f4ed; /* A light background to make logos stand out */
+  background-color: #e3f4ed;
 }
 
 .section-title {
@@ -17,67 +14,52 @@
   font-size: 1.1rem;
   color: #666;
   max-width: 600px;
-  margin: 0 auto 50px auto; /* Center the subtitle */
+  margin: 0 auto 50px auto;
 }
 
-/* Client Grid Layout */
 .client-grid {
   display: grid;
-  /* This creates a responsive grid that fits as many columns as possible with a minimum width of 150px */
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 2rem; /* Space between logos */
-  align-items: center; /* Vertically align items */
+  gap: 2rem;
+  align-items: center;
 }
 
-/* Individual Client Card Styling */
 .client-card {
-  /* This ensures the 'card' itself is invisible, meeting the "free from boxes" requirement */
   background-color: transparent;
   border: none;
-  display: flex; /* Helps in centering the image */
+  display: flex;
   justify-content: center;
   align-items: center;
-  padding: 15px; /* Adds some invisible spacing */
+  padding: 15px;
   cursor: pointer;
 }
 
-/* The Logo Image Itself */
 .client-card img {
-  max-width: 130px; /* Controls the maximum width of the logos */
+  max-width: 130px;
   height: auto;
-  filter: grayscale(0%); /* Start as black and white for a uniform look */
+  filter: grayscale(0%);
   opacity: 0.9;
-
-  /* THIS IS THE KEY for the smooth animation! */
   transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out,
     opacity 0.3s ease-in-out;
 }
 
-/* The HOVER Effect */
 .client-card:hover img {
-  /* This increases the size of the logo when hovered */
-  transform: scale(1.15); /* Makes the logo 15% bigger */
-
-  /* Bonus: Bring back color and full opacity on hover for a nicer effect */
+  transform: scale(1.15);
   filter: grayscale(0%);
   opacity: 1;
 }
-
-/* --- Responsive Adjustments --- */
-/* For tablets */
 @media (max-width: 768px) {
   .section-title {
     font-size: 2rem;
   }
   .client-grid {
-    grid-template-columns: repeat(3, 1fr); /* Force 3 columns on tablets */
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-/* For mobile phones */
 @media (max-width: 480px) {
   .client-grid {
-    grid-template-columns: repeat(2, 1fr); /* Force 2 columns on phones */
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
 }

@@ -43,14 +43,12 @@
     transform: translateX(0);
   }
 }
-
-/* --- Main Section Styling --- */
 .about {
   padding: 5rem 2rem;
   background: rgb(255, 255, 255);
   color: var(--color-heading);
   font-family: var(--font-family);
-  overflow-x: hidden; /* Important for containing animations */
+  overflow-x: hidden;
 }
 
 .about-container {
@@ -85,7 +83,6 @@
   transform: scale(1.05);
 }
 
-/* --- Content Styling with Animations --- */
 .about-content {
   flex: 1;
   min-width: 300px;
@@ -171,7 +168,6 @@
   }
 
   .about-content {
-    /* Reset animation for mobile view to avoid awkward slide-in */
     animation: fadeInUp 1s ease-out forwards;
   }
 }

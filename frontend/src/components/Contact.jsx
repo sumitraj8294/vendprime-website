@@ -1,5 +1,3 @@
-// src/components/Contact.jsx
-
 import React from 'react';
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import '../styles/Contact.css';
@@ -14,7 +12,6 @@ const Contact = () => {
         </p>
         
         <div className="contact-grid">
-          {/* Left Column: Contact Details */}
           <div className="contact-details">
             <h3 className="details-title">Contact Information</h3>
             <div className="info-item">
@@ -40,10 +37,7 @@ const Contact = () => {
               </div>
             </div>
           </div>
-
-          {/* Right Column: Google Map */}
           <div className="contact-map">
-            {/* 👇 CORRECTED IFRAME using your coordinates 👇 */}
             <iframe
   src="https://maps.google.com/maps?q=26.958221,75.767159&z=15&output=embed"
   width="600"

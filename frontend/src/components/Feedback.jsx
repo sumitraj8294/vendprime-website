@@ -1,5 +1,3 @@
-// src/components/Feedback.jsx
-
 import React, { useState } from 'react';
 import '../styles/Feedback.css';
 

@@ -2,18 +2,13 @@ import React, { useState } from "react";
 import "../styles/modal.css";
 
 const ContactModal = ({ isOpen, onClose }) => {
-  // State to track the form submission status
-  const [submissionStatus, setSubmissionStatus] = useState(null); // can be 'submitting', 'success', or 'error'
-
-  // If the modal is not open, render nothing
+  const [submissionStatus, setSubmissionStatus] = useState(null); 
   if (!isOpen) {
     return null;
   }
-
-  // Handle the form submission with Fetch API
   const handleSubmit = async (event) => {
-    event.preventDefault(); // Prevent the default browser redirect
-    setSubmissionStatus("submitting"); // Update status to show loading state
+    event.preventDefault();
+    setSubmissionStatus("submitting"); 
 
     const form = event.target;
     const data = new FormData(form);
@@ -28,24 +23,18 @@ const ContactModal = ({ isOpen, onClose }) => {
       });
 
       if (response.ok) {
-        // If submission is successful
         setSubmissionStatus("success");
-        form.reset(); // Clear the form fields
+        form.reset(); 
       } else {
-        // If there was an error from the server
         setSubmissionStatus("error");
       }
     } catch (error) {
-      // If there was a network error
       console.error("Form submission error:", error);
       setSubmissionStatus("error");
     }
   };
-
-  // When closing the modal, also reset the form status
   const handleClose = () => {
     onClose();
-    // Use a short timeout to prevent users from seeing the form reset during the closing animation
     setTimeout(() => {
       setSubmissionStatus(null);
     }, 300);
@@ -57,8 +46,6 @@ const ContactModal = ({ isOpen, onClose }) => {
         <button className="modal-close-btn" onClick={handleClose}>
           &times;
         </button>
-
-        {/* Conditionally render content based on submission status */}
         {submissionStatus === "success" ? (
           <div className="success-message">
             <h2>Thank You!</h2>
@@ -76,7 +63,7 @@ const ContactModal = ({ isOpen, onClose }) => {
               action="https://formspree.io/f/mrbajljq"
               method="POST"
               className="contact-form"
-              onSubmit={handleSubmit} // Use our custom submit handler
+              onSubmit={handleSubmit} 
             >
               <div className="form-group">
                 <label htmlFor="name">Full Name</label>
@@ -94,8 +81,6 @@ const ContactModal = ({ isOpen, onClose }) => {
                 <label htmlFor="message">Message (Optional)</label>
                 <textarea id="message" name="message" rows="3" disabled={submissionStatus === 'submitting'}></textarea>
               </div>
-
-              {/* Show an error message if submission fails */}
               {submissionStatus === "error" && (
                   <p className="error-message">Oops! Something went wrong. Please try again.</p>
               )}

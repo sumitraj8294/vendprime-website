@@ -1,14 +1,12 @@
-/* src/styles/Feedback.css */
-
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap");
 
 :root {
-  --color-primary: #1b1f3b; /* Dark Navy Blue */
-  --color-secondary: #ffd93d; /* Funky Yellow */
-  --color-green: #06d6a0; /* Neon Green */
-  --color-text: #1c1c1c; /* Primary Text */
-  --color-text-light: #6c757d; /* Secondary Text */
-  --color-border: #ddd; /* Input Border */
+  --color-primary: #1b1f3b;
+  --color-secondary: #ffd93d;
+  --color-green: #06d6a0;
+  --color-text: #1c1c1c;
+  --color-text-light: #6c757d;
+  --color-border: #ddd;
   --font-heading: "Playfair Display", serif;
   --font-body: "Montserrat", sans-serif;
 }
@@ -109,7 +107,7 @@ textarea {
   background-color: #f9f9f9;
   border: 1px solid var(--color-border);
   border-radius: 8px;
-  box-sizing: border-box; /* Important for padding */
+  box-sizing: border-box;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -143,14 +141,14 @@ textarea {
 }
 
 .btn-submit:hover {
-  background-color: rgb(27, 144, 31); /* Slightly darker yellow */
+  background-color: rgb(27, 144, 31);
   transform: translateY(-3px);
 }
 
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
   .form-grid {
-    grid-template-columns: 1fr; /* Stack name and email fields */
-    gap: 0; /* Remove gap as they are stacked */
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 }

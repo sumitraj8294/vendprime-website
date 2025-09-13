@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import '../styles/Services.css'; // Corrected CSS import name
+import '../styles/Services.css'; 
 
 // 1. Import your PNG logos from the assets folder
 import touchscreenIcon from '../assets/services/touchscreen.png';

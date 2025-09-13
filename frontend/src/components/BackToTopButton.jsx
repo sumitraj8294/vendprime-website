@@ -4,8 +4,6 @@ import { FaArrowUp } from 'react-icons/fa';
 
 const BackToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
-
-  // Show button when page is scrolled down
   const toggleVisibility = () => {
     if (window.scrollY > 300) {
       setIsVisible(true);
@@ -13,8 +11,6 @@ const BackToTopButton = () => {
       setIsVisible(false);
     }
   };
-
-  // Set up the event listener
   useEffect(() => {
     window.addEventListener('scroll', toggleVisibility);
 
@@ -22,8 +18,6 @@ const BackToTopButton = () => {
       window.removeEventListener('scroll', toggleVisibility);
     };
   }, []);
-
-  // Smoothly scroll to top
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,

@@ -1,24 +1,10 @@
-/* styles/hero.css */
 body {
-  /* Resets default browser margin */
   margin: 0;
-
-  /* Sets the background image */
   background-image: url("../assets/images/hero.png");
-
-  /* Ensures the image covers the entire viewport without distortion */
   background-size: cover;
-
-  /* Centers the image horizontally and vertically */
   background-position: center center;
-
-  /* Prevents the image from repeating if it's smaller than the screen */
   background-repeat: no-repeat;
-
-  /* Fixes the background image, creating a parallax effect on scroll */
   background-attachment: fixed;
-
-  /* Ensures the body takes up at least the full height of the screen */
   min-height: 100vh;
 }
 
@@ -29,7 +15,6 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  /* 👇 Set to scroll for standard, non-fixed behavior */
   background-attachment: scroll;
   display: flex;
   align-items: center;
@@ -40,7 +25,7 @@ body {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0); /* Restored overlay for text readability */
+  background: rgba(0, 0, 0, 0);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,12 +38,10 @@ body {
 .hero-content {
   max-width: 750px;
   text-align: center;
-  /* The entrance animation remains */
   animation: fadeInUp 1.2s ease-in-out;
   margin-top: -50px;
 }
 
-/* 👇 Styles from your h2 have been moved here */
 .hero-content h2 {
   font-size: 3.5rem;
   font-weight: bold;
@@ -67,15 +50,8 @@ body {
   text-transform: uppercase;
   margin-bottom: 1rem;
 }
-
-/* 👇 New class for the styled "PRIME" text */
-/* styles/hero.css */
-
-/* ... (keep existing styles from .hero to .hero-content h2) ... */
-
-/* Ensure this class uses the correct gold color */
 .hero-content h2 .highlight {
-  color: #42e69a; /* Dark text for contrast */
+  color: #42e69a;
   padding: 0 0.5rem;
   border-radius: 5px;
 }
@@ -85,22 +61,15 @@ body {
   font-weight: 500;
   color: #f1f1f1;
   margin-bottom: 1.5rem;
-  /* 👇 Increased spacing for better readability */
   letter-spacing: 4px;
   margin-top: -20px;
 }
-
-/* ... (keep existing .hero-description style) ... */
-
 .btn-primary {
-  /* 👇 Changed background to match the "PRIME" highlight */
   background: #259b68;
-  /* 👇 Darker text for better contrast on a gold background */
   color: #ffffff;
   padding: 0.8rem 1.6rem;
   font-size: 1.2rem;
   font-weight: bold;
-  /* 👇 Added a border for the new hover effect */
   border: 2px solid #867e5f6f;
   border-radius: 30px;
   cursor: pointer;
@@ -108,14 +77,10 @@ body {
 }
 
 .btn-primary:hover {
-  /* 👇 Modern hover effect: background becomes transparent */
   background: rgb(20, 147, 20);
-  /* 👇 Text color changes to gold */
   color: #ffffff;
   transform: translateY(-3px);
 }
-
-/* ... (keep existing keyframes and responsive styles) ... */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -135,8 +100,6 @@ body {
   .hero-content {
     margin-top: -70px;
   }
-
-  /* 👇 Selector updated from h1 to h2 */
   .hero-content h2 {
     font-size: 2.5rem;
     letter-spacing: 2px;

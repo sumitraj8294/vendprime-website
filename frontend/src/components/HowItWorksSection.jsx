@@ -7,8 +7,6 @@ import step3 from "../assets/icons/stocking.png";
 import step4 from "../assets/icons/maintain.png";
 
 const HowItWorksSection = () => {
-  // --- TEXT CHANGES ARE HERE ---
-  // The descriptions now emphasize a "Done-For-You" service model.
   const steps = [
     {
       title: "Tell Us Where",
