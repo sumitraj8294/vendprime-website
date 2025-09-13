@@ -26,7 +26,11 @@ const Services = () => {
   return (
     <section className="features-section">
       <div className="container">
-        <h2 className="section-title">WHAT OUR MACHINES OFFER?</h2>
+        <h2 className="section-title" style={{
+              color: '#000000',
+              fontWeight: '700',
+              fontFamily: "Cinzel, serif",
+            }}>WHAT OUR MACHINES OFFER?</h2>
         <div className="features-grid">
           {features.map((feature, index) => (
             <div className="feature-card" key={index}>

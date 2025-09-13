@@ -2,12 +2,14 @@
   padding: 80px 20px;
   text-align: center;
   background-color: #e3f4ed;
+  font-family: "Cinzel", serif;
 }
 
 .section-title {
   font-size: 2.5rem;
   margin-bottom: 1rem;
   color: #333;
+  font-family: "Cinzel", serif;
 }
 
 .section-subtitle {
@@ -15,6 +17,7 @@
   color: #666;
   max-width: 600px;
   margin: 0 auto 50px auto;
+  font-family: "Cinzel", serif;
 }
 
 .client-grid {

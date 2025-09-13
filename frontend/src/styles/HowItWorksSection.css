@@ -38,7 +38,7 @@
 .howitworks {
   padding: 80px 20px;
   background-color: #e3f4ed;
-  font-family: "Poppins", sans-serif; /* Recommended for a modern feel */
+  font-family: "Cinzel" serif;
   overflow: hidden;
 }
 
@@ -72,7 +72,7 @@
   position: relative;
   width: 4px; /* Slimmer line */
   border-radius: 999px;
-  background: var(--line-bg);
+  color: teal;
   margin: 0 auto;
 }
 
@@ -84,6 +84,7 @@
   height: 0%; /* Controlled by JavaScript */
   background: linear-gradient(180deg, var(--color-pink), var(--color-green));
   border-radius: 999px;
+  color: teal;
   box-shadow: 0 0 12px rgba(255, 77, 141, 0.4), 0 0 12px rgba(0, 184, 148, 0.3);
   transition: height 0.2s linear; /* Smooth fill */
 }
@@ -91,6 +92,7 @@
 /* --- Steps & Cards --- */
 .steps {
   display: grid;
+  color: teal;
   gap: 28px; /* Matched to timeline gap */
 }
 
@@ -102,6 +104,7 @@
   background: var(--surface);
   border-radius: 16px;
   padding: 20px;
+  color: teal;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
   border: 1px solid transparent;
 
@@ -114,13 +117,15 @@
 
 .step-card.is-visible {
   opacity: 1;
+  color: teal;
   transform: translateX(0);
 }
 
 .step-card:hover {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
   transform: translateY(-5px); /* Lift effect */
-  border-color: var(--color-green);
+  color: teal;
+  border: 1px solid teal;
 }
 
 .step-media {
@@ -148,7 +153,7 @@
 .step-body h3 {
   margin: 0 0 6px;
   font-size: 1.2rem;
-  color: var(--color-text);
+  color: teal;
   font-weight: 600;
 }
 

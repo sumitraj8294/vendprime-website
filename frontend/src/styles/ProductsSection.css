@@ -32,7 +32,7 @@
 .products {
   padding: 100px 100px; /* This padding will be adjusted for smaller screens */
   background-color: var(--color-bg);
-  font-family: "Poppins", sans-serif;
+  font-family: "Cinzel", serif;
 }
 
 .products-container {
@@ -44,7 +44,6 @@
 
 .products-container h2 {
   font-size: 2.8rem;
-  color: var(--color-primary);
   margin-bottom: 10px;
 }
 
@@ -69,6 +68,7 @@
   border: 1px solid var(--color-border);
   box-shadow: 0 4px 15px var(--color-shadow);
   display: flex;
+  color: teal;
   flex-direction: column; /* Stacks image and content vertically */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
@@ -101,13 +101,14 @@
   padding: 25px;
   text-align: left;
   display: flex;
+  color: teal;
   flex-direction: column;
   flex-grow: 1; /* Allows content to expand, making all cards equal height */
 }
 
 .product-content h3 {
   font-size: 1.4rem;
-  color: var(--color-primary);
+  color: teal;
   margin: 0 0 15px 0;
 }
 
@@ -188,4 +189,107 @@
     transform: none;
     box-shadow: 0 4px 15px var(--color-shadow);
   }
+}
+/* --- Extra Card Animations --- */
+
+/* Slide-in from bottom with fade */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Bounce-in effect */
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Flip-in (3D rotation) */
+@keyframes flipIn {
+  from {
+    opacity: 0;
+    transform: rotateY(90deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateY(0);
+  }
+}
+
+/* --- Apply Animations to Cards --- */
+.product-card {
+  /* Default animation (choose one by uncommenting) */
+  animation: slideInUp 0.6s ease-out forwards;
+  /* animation: bounceIn 0.6s ease-out forwards; */
+  /* animation: flipIn 0.6s ease-out forwards; */
+}
+
+/* --- Staggered delays for nicer entry --- */
+.product-card:nth-child(1) {
+  animation-delay: 0.3s;
+}
+.product-card:nth-child(2) {
+  animation-delay: 0.5s;
+}
+.product-card:nth-child(3) {
+  animation-delay: 0.7s;
+}
+.product-card:nth-child(4) {
+  animation-delay: 0.9s;
+}
+/* --- Hover Animations for Cards --- */
+
+/* Smooth scale-up */
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(27, 31, 59, 0.15);
+}
+
+/* --- Option 1: Subtle Tilt (3D rotation) --- */
+.product-card:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(-5deg);
+  box-shadow: 0 15px 30px rgba(27, 31, 59, 0.2);
+}
+
+/* --- Option 2: Glow Pulse --- */
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px teal, 0 8px 25px rgba(27, 31, 59, 0.15);
+}
+
+/* --- Option 3: Border Sweep --- */
+.product-card {
+  position: relative;
+  overflow: hidden;
+}
+.product-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 4px;
+  background: var(--color-primary);
+  transition: left 0.4s ease;
+}
+.product-card:hover::after {
+  left: 0;
 }

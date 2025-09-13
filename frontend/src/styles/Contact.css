@@ -36,17 +36,18 @@
   text-align: center;
   opacity: 0;
   animation: fadeInUp 0.8s ease forwards;
-  font-family: "Barlow Condensed", sans-serif;
+  font-family: "Cinzel", serif;
   font-weight: 500;
   font-style: normal;
 }
 
 .contact-section .section-title {
-  font-family: "Barlow Condensed", sans-serif;
+  font-family: "Cinzel", serif;
   font-weight: 700;
   font-style: normal;
   font-size: 2.8rem;
   margin-bottom: 20px;
+  color: black;
 }
 
 .contact-section .section-subtitle {
@@ -79,11 +80,11 @@
 }
 
 .details-title {
-  font-family: "Barlow Condensed", sans-serif;
+  font-family: "Cinzel", serif;
   font-weight: 500;
   font-style: normal;
   font-size: 1.8rem;
-  color: var(--color-primary);
+  color: teal;
   margin-bottom: 30px;
   padding-bottom: 10px;
   border-bottom: 2px solid var(--color-secondary);
@@ -115,6 +116,8 @@
   color: var(--color-text-light);
   margin: 0;
   line-height: 1.6;
+  word-spacing: 6px;
+  text-align: left; /* 👈 makes text justified */
 }
 
 /* --- Right Column: Map --- */

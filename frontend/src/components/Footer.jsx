@@ -49,7 +49,7 @@ function Footer({ setPage }) {
           <p>Email: vendprime1@gmail.com</p>
           <p>Phone:+9189498 00657,+918003875282</p>
           <p>
-            Address: G2, GROUND FLOOR, EAGLE RESIDENCE, PLOT NO. G4, PATH NO. 6, VIJAYBARI, SIKAR ROAD, JAIPUR, RAJASTHAN - 302039. INDIA
+            Address: G2, GROUND FLOOR, EAGLE RESIDENCE, PLOT NO. G4, PATH NO. 6, VIJAYBARI, SIKAR ROAD, JAIPUR, RAJASTHAN -302039  INDIA
           </p>
         </div>
       </div>

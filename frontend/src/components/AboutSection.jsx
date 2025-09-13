@@ -19,19 +19,19 @@ const AboutSection = () => {
           </p>
           <div className="about-highlights">
             <div className="highlight-card">
-              <h3>⚡ Cashless Payments</h3>
+              <h3>Cashless Payments</h3>
               <p>Seamless transactions with UPI, cards, and mobile wallets.</p>
             </div>
             <div className="highlight-card">
-              <h3>🥗 Healthy Options</h3>
+              <h3>Healthy Options</h3>
               <p>Healthy snacks and fresh foods, anytime you need them.</p>
             </div>
             <div className="highlight-card">
-              <h3>🕒 24/7 Availability</h3>
+              <h3>24/7 Availability</h3>
               <p>Always accessible, anytime you need a quick snack or drink.</p>
             </div>
             <div className="highlight-card">
-  <h3>⭐ Trusted Brands</h3>
+  <h3>Trusted Brands</h3>
   <p>Only the snacks and drinks you already know and love.</p>
 </div>
           </div>

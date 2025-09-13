@@ -38,13 +38,14 @@ const Clients = () => {
     <section id="clients" className="clients-section">
       <div className="container">
       <h2 className="section-title">
-  <span style={{ color: "#2d3436", fontWeight: "700" }}>
+  <span style={{ color: "#2d3436", fontWeight: "700", fontFamily: "Cinzel, serif"}}>
     SUCCESSFULLY
   </span>{" "}
   <span
     style={{
       color: "#00b894",
-      fontWeight: "700",
+  fontWeight: 700,
+  fontFamily: "Cinzel, serif",
     }}
   >
     VENDING&nbsp;AT...

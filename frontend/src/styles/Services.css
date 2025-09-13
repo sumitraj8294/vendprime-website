@@ -24,8 +24,8 @@
   --color-shadow: rgba(0, 0, 0, 0.08); /* Subtle Shadow */
 
   /* Typography */
-  --font-heading: "Playfair Display", serif;
-  --font-body: "Montserrat", sans-serif;
+  --font-heading: "Cinzel" serif;
+  --font-body: "Cinzel" serif;
 }
 
 /* --- Animation Keyframes --- */
@@ -45,7 +45,7 @@
   background-color: #e3f4ed;
   padding: 80px 20px;
   text-align: center;
-  font-family: var(--font-body);
+  font-family: "Cinzel" serif;
   overflow-x: hidden; /* Prevents scrollbars from animations */
 }
 
@@ -55,10 +55,10 @@
 }
 
 /* --- Typography with Animations --- */
-.section-title,
+h2.section-title,
 .section-subtitle {
-  font-family: var(--font-heading);
-  color: var(--color-primary);
+  font-family: "Cinzel" serif;
+  color: teal;
   opacity: 0;
   animation: fadeInUp 0.8s ease forwards;
 }
@@ -67,6 +67,7 @@
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 40px;
+  font-family: "Cinzel" serif;
   text-transform: uppercase;
 }
 
@@ -95,6 +96,7 @@
 
   opacity: 0;
   animation: fadeInUp 0.6s ease forwards;
+  color: teal;
 }
 
 .feature-card:hover {
@@ -231,4 +233,57 @@
     padding: 10px 20px;
     font-size: 0.9rem;
   }
+}
+h2.section-title {
+  font-family: "Cinzel" serif;
+}
+/* --- Scale Up Animation --- */
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Apply to feature cards */
+.feature-card {
+  background-color: var(--color-card);
+  border-radius: 12px;
+  padding: 40px 30px;
+  text-align: center;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 15px var(--color-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  opacity: 0;
+  animation: scaleUp 0.6s ease-out forwards; /* 👈 switched to scaleUp */
+  color: teal;
+}
+
+/* Staggered animation delay for each card */
+.feature-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.feature-card:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.feature-card:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.feature-card:nth-child(4) {
+  animation-delay: 0.5s;
+}
+.feature-card:nth-child(5) {
+  animation-delay: 0.6s;
+}
+.feature-card:nth-child(6) {
+  animation-delay: 0.7s;
+}
+.feature-card:hover {
+  transform: translateY(-10px) scale(2); /* lift + grow */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }

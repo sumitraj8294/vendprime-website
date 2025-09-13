@@ -25,7 +25,7 @@ import redbullLogo from '../assets/logos/brands/redbull.png';
 import drOetkarLogo from '../assets/logos/brands/dr-oetkar.png';
 import bisleriLogo from '../assets/logos/brands/bisleri.png';
 import kurkureLogo from '../assets/logos/brands/kurkure.png';
-import cornettoLogo from '../assets/logos/brands/cornetto.png';
+import cornitosLogo from '../assets/logos/brands/cornitos.png';
 import doritosLogo from '../assets/logos/brands/doritos.png';
 import bikanoLogo from '../assets/logos/brands/bikano.png';
 import lahoriLogo from '../assets/logos/brands/lahori.png';
@@ -60,7 +60,7 @@ const brands = [
   { name: 'Dr Oetkar', logoUrl: drOetkarLogo },
   { name: 'Bisleri', logoUrl: bisleriLogo },
   { name: 'Kurkure', logoUrl: kurkureLogo },
-  { name: 'Cornetto', logoUrl: cornettoLogo },
+  { name: 'Cornitos', logoUrl: cornitosLogo },
   { name: 'Doritos', logoUrl: doritosLogo },
   { name: 'Bikano', logoUrl: bikanoLogo },
   { name: 'Lahori', logoUrl: lahoriLogo },
@@ -105,13 +105,14 @@ const PartnerBrands = () => {
     <section className="brands-section">
       <div className="container">
       <h2 className="section-title">
-          <span style={{ color: '#2d3436', fontWeight: '700' }}>
+          <span style={{ color: '#2d3436', fontWeight: '700' ,fontFamily: "Cinzel, serif"}}>
             FEATURING
           </span>{' '}
           <span
             style={{
               color: '#00b894',
               fontWeight: '700',
+              fontFamily: "Cinzel, serif",
             }}
           >
             POPULAR&nbsp;BRANDS

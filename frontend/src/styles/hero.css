@@ -61,11 +61,11 @@ body {
   font-weight: 500;
   color: #f1f1f1;
   margin-bottom: 1.5rem;
-  letter-spacing: 4px;
+  letter-spacing: 6px;
   margin-top: -20px;
 }
 .btn-primary {
-  background: #259b68;
+  background: #2f9c69;
   color: #ffffff;
   padding: 0.8rem 1.6rem;
   font-size: 1.2rem;
@@ -77,7 +77,7 @@ body {
 }
 
 .btn-primary:hover {
-  background: rgb(20, 147, 20);
+  background: rgb(75, 156, 75);
   color: #ffffff;
   transform: translateY(-3px);
 }

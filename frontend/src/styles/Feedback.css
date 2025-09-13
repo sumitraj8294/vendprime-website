@@ -37,11 +37,12 @@
 }
 
 .feedback-section .section-title {
-  font-family: "Barlow Condensed", sans-serif;
+  font-family: "Cinzel", serif;
   font-weight: 700;
   font-style: normal;
   font-size: 2.8rem;
   margin-bottom: 20px;
+  color: black;
 }
 
 .feedback-section .section-subtitle {
@@ -130,7 +131,7 @@ textarea {
   font-size: 1.1rem;
   font-weight: 600;
   color: white;
-  background: #259b68;
+  background: #1e6747;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -141,7 +142,7 @@ textarea {
 }
 
 .btn-submit:hover {
-  background-color: rgb(27, 144, 31);
+  background-color: rgb(73, 144, 128);
   transform: translateY(-3px);
 }
 

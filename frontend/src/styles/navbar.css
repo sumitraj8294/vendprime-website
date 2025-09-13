@@ -34,7 +34,7 @@ body {
 
 .logo-text {
   color: #0b0d0b; /* main text color */
-  font-family: "Poppins", sans-serif;
+  font-family: "Cinzel", serif;
 }
 
 .logo-text .highlight {
@@ -47,7 +47,7 @@ body {
   gap: 1.5rem; /* slightly wider spacing for bigger text */
   font-size: 1.2rem;
   align-items: center;
-  font-family: "Bungee", sans-serif;
+  font-family: "Cinzel", "Times New Roman", serif;
   font-weight: 400;
   font-style: normal;
 }
