@@ -18,7 +18,7 @@ const Contact = () => {
               <FaMapMarkerAlt className="info-icon" />
               <div className="info-text">
                 <h4>Address</h4>
-                <p>G2, GROUND FLOOR, EAGLE RESIDENCE, PLOT NO.G4, PATH NO.6, VIJAYBARI,SIKAR ROAD, JAIPUR, RAJASTHAN - 302039 INDIA</p>
+                <p>G2, GROUND FLOOR, EAGLE RESIDENCE, PLOT NO.G4, PATH NO.6, VIJAYBARI, SIKAR ROAD, JAIPUR, RAJASTHAN, PINCODE - 302039 , INDIA</p>
               </div>
             </div>
             <div className="info-item">

@@ -81,46 +81,38 @@ const PartnerBrands = () => {
     const scroller = scrollerRef.current;
     if (!scroller) return;
 
-    // 1. Check if animation is preferred
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
-    // 2. Set the data-animated attribute to start the CSS animation
     scroller.setAttribute('data-animated', true);
 
-    // 3. Duplicate the logos for a seamless loop
     const scrollerInner = scroller.querySelector('.scroller__inner');
     const scrollerContent = Array.from(scrollerInner.children);
 
+    // Duplicate logos for seamless loop
     scrollerContent.forEach((item) => {
       const duplicatedItem = item.cloneNode(true);
-      // aria-hidden to prevent screen readers from reading duplicates
-      duplicatedItem.setAttribute('aria-hidden', true); 
+      duplicatedItem.setAttribute('aria-hidden', true);
       scrollerInner.appendChild(duplicatedItem);
     });
 
-  }, []); // Empty dependency array ensures this runs only once on mount
+    // ✅ Enable smooth dragging on iPhone/Android
+    scroller.style.WebkitOverflowScrolling = 'touch';
+  }, []);
 
   return (
     <section className="brands-section">
       <div className="container">
-      <h2 className="section-title">
-          <span style={{ color: '#2d3436', fontWeight: '700' ,fontFamily: "Cinzel, serif"}}>
+        <h2 className="section-title">
+          <span style={{ color: '#2d3436', fontWeight: '700', fontFamily: "Cinzel, serif" }}>
             FEATURING
           </span>{' '}
-          <span
-            style={{
-              color: '#00b894',
-              fontWeight: '700',
-              fontFamily: "Cinzel, serif",
-            }}
-          >
+          <span style={{ color: '#00b894', fontWeight: '700', fontFamily: "Cinzel, serif" }}>
             POPULAR&nbsp;BRANDS
           </span>
         </h2>
       </div>
 
-      {/* The ref is attached to the main scroller container */}
       <div className="scroller" ref={scrollerRef}>
         <div className="scroller__inner">
           {brands.map((brand, index) => (
