@@ -24,7 +24,19 @@ import bingoLogo from '../assets/logos/brands/bingo.png';
 import redbullLogo from '../assets/logos/brands/redbull.png';
 import drOetkarLogo from '../assets/logos/brands/dr-oetkar.png';
 import bisleriLogo from '../assets/logos/brands/bisleri.png';
-
+import kurkureLogo from '../assets/logos/brands/kurkure.png';
+import cornettoLogo from '../assets/logos/brands/cornetto.png';
+import doritosLogo from '../assets/logos/brands/doritos.png';
+import bikanoLogo from '../assets/logos/brands/bikano.png';
+import lahoriLogo from '../assets/logos/brands/lahori.png';
+import epigamiaLogo from '../assets/logos/brands/epigamia.png';
+import craxLogo from '../assets/logos/brands/crax.png';
+import saffolaLogo from '../assets/logos/brands/saffola.png';
+import monsterLogo from '../assets/logos/brands/monster.png';
+import paperboatLogo from '../assets/logos/brands/paperboat.png';
+import nescafeLogo from '../assets/logos/brands/nescafe.png';
+import momLogo from '../assets/logos/brands/mom.png';
+import maggiLogo from '../assets/logos/brands/maggi.png';
 const brands = [
   // (Your brands array remains the same)
   { name: 'Lays', logoUrl: laysLogo },
@@ -47,6 +59,19 @@ const brands = [
   { name: 'Red Bull', logoUrl: redbullLogo },
   { name: 'Dr Oetkar', logoUrl: drOetkarLogo },
   { name: 'Bisleri', logoUrl: bisleriLogo },
+  { name: 'Kurkure', logoUrl: kurkureLogo },
+  { name: 'Cornetto', logoUrl: cornettoLogo },
+  { name: 'Doritos', logoUrl: doritosLogo },
+  { name: 'Bikano', logoUrl: bikanoLogo },
+  { name: 'Lahori', logoUrl: lahoriLogo },
+  { name: 'Epigamia', logoUrl: epigamiaLogo },
+  { name: 'Maggi', logoUrl: maggiLogo },
+  { name: 'Crax', logoUrl: craxLogo },
+  { name: 'Saffola', logoUrl: saffolaLogo },
+  { name: 'Monster', logoUrl: monsterLogo },
+  { name: 'PaperBoat', logoUrl: paperboatLogo },
+  { name: 'Nescafe', logoUrl: nescafeLogo },
+  { name: 'Mom', logoUrl: momLogo },
 ];
 
 const PartnerBrands = () => {
