@@ -54,6 +54,7 @@ body {
   color: #42e69a;
   padding: 0 0.5rem;
   border-radius: 5px;
+  margin-left: -10px;
 }
 
 .hero-content .hero-tagline {

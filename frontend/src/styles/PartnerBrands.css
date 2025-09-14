@@ -1,81 +1,26 @@
-/* General Section Styling */
 .brands-section {
   padding: 80px 0;
-  background-color: #fff;
+  background: #fff;
 }
 
 .section-title {
   text-align: center;
   font-size: 2.5rem;
-  color: #333;
   margin-bottom: 70px;
   font-family: "Barlow Condensed", sans-serif;
   font-weight: 700;
-  font-style: normal;
-}
-
-/* Scroller container */
-.scroller {
-  overflow-x: auto; /* allow manual swipe */
-  -webkit-overflow-scrolling: touch; /* smooth iOS swipe */
-  position: relative;
-
-  -webkit-mask: linear-gradient(
-    90deg,
-    transparent,
-    white 10%,
-    white 90%,
-    transparent
-  );
-  mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
-
-  scrollbar-width: none; /* Firefox hide scroll */
-  -ms-overflow-style: none; /* IE hide scroll */
-}
-.scroller::-webkit-scrollbar {
-  display: none; /* Chrome/Safari hide scroll */
-}
-
-/* Inner wrapper */
-.scroller__inner {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 3rem;
-  padding-block: 1rem;
-  width: max-content;
-}
-
-/* Animate only when JS adds attribute */
-.scroller[data-animated="true"] .scroller__inner {
-  animation: scroll 40s linear infinite;
-}
-
-/* Pause animation on hover */
-.scroller:hover .scroller__inner {
-  animation-play-state: paused;
-}
-
-/* Keyframes for left→right infinite scroll */
-@keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%); /* move half because we duplicate items */
-  }
 }
 
 /* Brand logo cards */
 .brand-card {
-  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .brand-card img {
-  max-height: 95px;
-  max-width: 220px;
+  max-height: 120px;
+  max-width: 250px;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
@@ -84,99 +29,67 @@
   transform: scale(1.15);
 }
 
-/* Responsive */
+/* Navigation arrows
+.swiper-button-prev,
+.swiper-button-next {
+  color: #00b894;
+  transition: transform 0.2s;
+} */
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  transform: scale(1.2);
+}
+
+/* ✅ Hide arrows on mobile */
 @media (max-width: 768px) {
-  .brands-section {
-    padding: 60px 0;
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none !important;
   }
   .section-title {
     font-size: 2rem;
     margin-bottom: 50px;
   }
-  .scroller__inner {
-    gap: 2.5rem;
-  }
   .brand-card img {
-    max-height: 70px;
-    max-width: 160px;
+    max-height: 90px;
+    max-width: 180px;
   }
 }
 
 @media (max-width: 480px) {
-  .brands-section {
-    padding: 50px 0;
-  }
   .section-title {
     font-size: 1.8rem;
     margin-bottom: 40px;
   }
-  .scroller__inner {
-    gap: 2rem;
-  }
   .brand-card img {
-    max-height: 55px;
-    max-width: 120px;
+    max-height: 80px;
+    max-width: 160px;
   }
 }
-/* Animate only when JS adds attribute */
-.scroller[data-animated="true"] .scroller__inner {
-  width: max-content;
-  animation: scroll-left 70s linear infinite;
-  display: flex;
+/* Navigation arrows */
+.swiper-button-prev,
+.swiper-button-next {
+  color: #00b894;
+  font-size: 28px;
+  font-weight: bold;
+  transition: transform 0.2s;
 }
 
-/* Pause animation on hover (desktop) */
-.scroller:hover .scroller__inner {
-  animation-play-state: paused;
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  transform: scale(1.2);
+}
+.swiper-button-prev,
+.swiper-button-next {
+  color: #00b894;
+  font-size: 28px;
+  font-weight: bold;
+  z-index: 20; /* ✅ keep above slides */
+  cursor: pointer;
 }
 
-/* Smooth scroll keyframes - LEFT → RIGHT */
-@keyframes scroll-right {
-  from {
-    transform: translateX(-50%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-/* ✅ Important: allow manual swipe */
-.scroller {
-  -webkit-overflow-scrolling: touch; /* iOS smooth scroll */
-  scroll-behavior: smooth;
-  cursor: grab;
-}
-.scroller:active {
-  cursor: grabbing;
-}
-/* Animate only when JS adds attribute */
-.scroller[data-animated="true"] .scroller__inner {
-  width: max-content;
-  animation: scroll-left 90s linear infinite;
-  display: flex;
-}
-
-/* Pause animation on hover (desktop) */
-.scroller:hover .scroller__inner {
-  animation-play-state: paused;
-}
-
-/* Smooth scroll keyframes - LEFT scroll */
-@keyframes scroll-left {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-/* ✅ Enable manual swipe on iPhone & desktop */
-.scroller {
-  -webkit-overflow-scrolling: touch; /* iOS smooth scrolling */
-  scroll-behavior: smooth;
-  cursor: grab;
-}
-.scroller:active {
-  cursor: grabbing;
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  transform: scale(1.2);
 }
