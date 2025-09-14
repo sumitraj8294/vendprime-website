@@ -1,11 +1,7 @@
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
+import React, { useEffect, useRef } from "react";
 import "../styles/PartnerBrands.css";
 
-// ✅ Import all brand logos
+// --- Logo Imports ---
 import laysLogo from "../assets/logos/brands/lays.png";
 import britaniaLogo from "../assets/logos/brands/britania.png";
 import bikajiLogo from "../assets/logos/brands/bikaji.png";
@@ -40,45 +36,111 @@ import nescafeLogo from "../assets/logos/brands/nescafe.png";
 import momLogo from "../assets/logos/brands/mom.png";
 import maggiLogo from "../assets/logos/brands/maggi.png";
 
-const brands = [
-  { name: "Lays", logoUrl: laysLogo },
-  { name: "Britania", logoUrl: britaniaLogo },
-  { name: "Bikaji", logoUrl: bikajiLogo },
-  { name: "Haldiram", logoUrl: haldiramLogo },
-  { name: "Beyond Snack", logoUrl: beyondSnackLogo },
-  { name: "Lotte", logoUrl: lotteLogo },
-  { name: "Nestle", logoUrl: nestleLogo },
-  { name: "Pringles", logoUrl: pringlesLogo },
-  { name: "Superyou", logoUrl: superyouLogo },
-  { name: "Cadbury", logoUrl: cadburyLogo },
-  { name: "Mother Dairy", logoUrl: motherDairyLogo },
-  { name: "Coke", logoUrl: cokeLogo },
-  { name: "MTR", logoUrl: mtrLogo },
-  { name: "Mama Earth", logoUrl: mamaearthLogo },
-  { name: "Sofy", logoUrl: sofyLogo },
-  { name: "Real", logoUrl: realLogo },
-  { name: "Bingo", logoUrl: bingoLogo },
-  { name: "Red Bull", logoUrl: redbullLogo },
-  { name: "Dr Oetkar", logoUrl: drOetkarLogo },
-  { name: "Bisleri", logoUrl: bisleriLogo },
-  { name: "Kurkure", logoUrl: kurkureLogo },
-  { name: "Cornitos", logoUrl: cornitosLogo },
-  { name: "Doritos", logoUrl: doritosLogo },
-  { name: "Bikano", logoUrl: bikanoLogo },
-  { name: "Lahori", logoUrl: lahoriLogo },
-  { name: "Epigamia", logoUrl: epigamiaLogo },
-  { name: "Maggi", logoUrl: maggiLogo },
-  { name: "Crax", logoUrl: craxLogo },
-  { name: "Saffola", logoUrl: saffolaLogo },
-  { name: "Monster", logoUrl: monsterLogo },
-  { name: "PaperBoat", logoUrl: paperboatLogo },
-  { name: "Nescafe", logoUrl: nescafeLogo },
-  { name: "Mom", logoUrl: momLogo },
+// Array of all imported logos
+const brandLogos = [
+  laysLogo, britaniaLogo, bikajiLogo, haldiramLogo, beyondSnackLogo, lotteLogo,
+  nestleLogo, pringlesLogo, superyouLogo, cadburyLogo, motherDairyLogo, cokeLogo,
+  mtrLogo, mamaearthLogo, sofyLogo, realLogo, bingoLogo, redbullLogo,
+  drOetkarLogo, bisleriLogo, kurkureLogo, cornitosLogo, doritosLogo, bikanoLogo,
+  lahoriLogo, epigamiaLogo, craxLogo, saffolaLogo, monsterLogo, paperboatLogo,
+  nescafeLogo, momLogo, maggiLogo
 ];
 
+// Reusable LogoItem component
+const LogoItem = ({ src, alt }) => (
+  <div className="brand-logo-item">
+    <img src={src} alt={alt} />
+  </div>
+);
+
 const PartnerBrands = () => {
+  const scrollerRef = useRef(null);
+  const animationFrameRef = useRef(null);
+  const restartTimerRef = useRef(null);
+  const isInteractingRef = useRef(false);
+
+  // You can adjust these values
+  const SCROLL_SPEED = 0.99; // Speed of the auto-scroll (pixels per frame)
+  const WHEEL_PAUSE_DURATION = 2000; // 2 seconds delay ONLY for wheel/trackpad
+
+  useEffect(() => {
+    const scroller = scrollerRef.current;
+    if (!scroller) return;
+
+    // The main animation loop
+    const animateScroll = () => {
+      if (!isInteractingRef.current) {
+        if (scroller.scrollLeft >= scroller.scrollWidth / 2) {
+          scroller.scrollLeft = 0;
+        } else {
+          scroller.scrollLeft += SCROLL_SPEED;
+        }
+      }
+      animationFrameRef.current = requestAnimationFrame(animateScroll);
+    };
+
+    // --- NEW LOGIC: Separate Handlers ---
+
+    // 1. For Drag/Touch Start: Pause animation immediately
+    const handleDragStart = () => {
+      isInteractingRef.current = true;
+      if (restartTimerRef.current) {
+        clearTimeout(restartTimerRef.current);
+      }
+    };
+
+    // 2. For Drag/Touch End: Resume animation immediately
+    const handleDragEnd = () => {
+      isInteractingRef.current = false;
+      if (restartTimerRef.current) {
+        clearTimeout(restartTimerRef.current);
+      }
+    };
+
+    // 3. For Wheel: Use a timer (debounce) since wheel has no "end" event
+    const handleWheel = () => {
+      isInteractingRef.current = true;
+      if (restartTimerRef.current) {
+        clearTimeout(restartTimerRef.current);
+      }
+      restartTimerRef.current = setTimeout(() => {
+        isInteractingRef.current = false;
+      }, WHEEL_PAUSE_DURATION);
+    };
+
+    // Start the animation loop
+    animationFrameRef.current = requestAnimationFrame(animateScroll);
+
+    // Add event listeners for all types of user interaction
+    scroller.addEventListener("mousedown", handleDragStart);
+    scroller.addEventListener("touchstart", handleDragStart, { passive: true });
+    
+    scroller.addEventListener("mouseup", handleDragEnd);
+    scroller.addEventListener("touchend", handleDragEnd);
+    scroller.addEventListener("mouseleave", handleDragEnd); // Also resume if mouse leaves area while dragging
+
+    scroller.addEventListener("wheel", handleWheel, { passive: true });
+
+    // Cleanup function when the component unmounts
+    return () => {
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+      if (restartTimerRef.current) {
+        clearTimeout(restartTimerRef.current);
+      }
+      scroller.removeEventListener("mousedown", handleDragStart);
+      scroller.removeEventListener("touchstart", handleDragStart);
+      scroller.removeEventListener("mouseup", handleDragEnd);
+      scroller.removeEventListener("touchend", handleDragEnd);
+      scroller.removeEventListener("mouseleave", handleDragEnd);
+      scroller.removeEventListener("wheel", handleWheel);
+    };
+  }, [SCROLL_SPEED, WHEEL_PAUSE_DURATION]);
+
   return (
-    <section className="brands-section">
+    <div className="partner-brands-container">
+      
       <div className="container">
         <h2 className="section-title">
           <span style={{ color: "#2d3436", fontWeight: "700", fontFamily: "Cinzel, serif" }}>
@@ -90,43 +152,18 @@ const PartnerBrands = () => {
         </h2>
       </div>
 
-      <div className="brands-swiper-wrapper">
-  <Swiper
-    modules={[Autoplay, Navigation]}
-    navigation={{
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    }}
-    autoplay={{
-      delay: 0,
-      disableOnInteraction: false,
-    }}
-    speed={4000}
-    loop={true}
-    slidesPerView={5}
-    spaceBetween={60}
-    centeredSlides={true}
-    breakpoints={{
-      0: { slidesPerView: 3, spaceBetween: 20 },
-      768: { slidesPerView: 4, spaceBetween: 40 },
-      1024: { slidesPerView: 5, spaceBetween: 60 },
-    }}
-    className="brands-swiper"
-  >
-    {brands.map((brand, index) => (
-      <SwiperSlide key={index} className="brand-card">
-        <img src={brand.logoUrl} alt={brand.name} />
-      </SwiperSlide>
-    ))}
-  </Swiper>
-
-  {/* ✅ Custom arrows outside */}
-  <div className="swiper-button-prev"></div>
-  <div className="swiper-button-next"></div>
-</div>
-
-
-    </section>
+      <div className="partner-brands-scroller" ref={scrollerRef}>
+        <div className="partner-brands-track">
+          {/* Render the list of logos TWICE for the seamless loop */}
+          {brandLogos.map((logo, index) => (
+            <LogoItem src={logo} alt={`brand-logo-${index}`} key={`a-${index}`} />
+          ))}
+          {brandLogos.map((logo, index) => (
+            <LogoItem src={logo} alt={`brand-logo-${index}`} key={`b-${index}`} />
+          ))}
+        </div>
+      </div>
+    </div>
   );
 };
 

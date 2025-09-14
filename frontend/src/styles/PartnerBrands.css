@@ -1,95 +1,197 @@
-.brands-section {
-  padding: 80px 0;
-  background: #fff;
+/* --- Main Section Wrapper --- */
+.partner-brands-container {
+  /* Provides top/bottom spacing for the whole section */
+  padding: 3rem 0;
+  max-width: 100%;
+  overflow-x: hidden; /* Ensures no horizontal bleed on the page */
 }
 
+/* --- Section Title Styles --- */
 .section-title {
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 70px;
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 700;
+  /* Font size uses 'clamp' for fluid responsiveness: min, preferred, max */
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  margin-bottom: 2.5rem; /* Space between title and scroller */
+  letter-spacing: 1px;
 }
 
-/* Brand logo cards */
-.brand-card {
+/* * --- The Scroller (Outer Container) --- 
+ * This is the most important part.
+ * 1. overflow-x: scroll: This is what makes it manually draggable/scrollable.
+ * 2. cursor: grab: Provides a desktop user-feedback hint.
+ * 3. scrollbar-width & ::-webkit-scrollbar: These rules hide the ugly 
+ * native scrollbar on all major browsers for a clean look.
+ */
+.partner-brands-scroller {
+  overflow-x: scroll;
+  cursor: grab;
+
+  /* Hide scrollbar for Firefox */
+  scrollbar-width: none;
+  /* Hide scrollbar for IE and Edge */
+  -ms-overflow-style: none;
+}
+
+/* Hide scrollbar for Chrome, Safari, and Opera */
+.partner-brands-scroller::-webkit-scrollbar {
+  display: none;
+}
+
+/* Adds the "fade out" effect on the left and right edges */
+.partner-brands-scroller {
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 10%,
+    #000 90%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 10%,
+    #000 90%,
+    transparent
+  );
+}
+
+/* * --- The Track (Inner Container) --- 
+ * 1. display: flex: Lines up all logo items in a single row.
+ * 2. width: max-content: CRITICAL. This makes the track as wide as ALL its
+ * content (both sets of logos), allowing it to overflow the parent scroller.
+ * 3. gap: Sets the spacing BETWEEN each logo item.
+ */
+.partner-brands-track {
+  display: flex;
+  width: max-content;
+  gap: 4rem; /* Increased space between logos */
+}
+
+/* * --- Individual Logo Item --- 
+ * This sets the size for each logo "slot."
+ * Using flex here ensures the image inside is always centered.
+ */
+.brand-logo-item {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  /* --- INCREASED LOGO SIZE --- */
+  height: 70px; /* Increased height from 50px */
+  width: 170px; /* Increased width from 130px */
 }
 
-.brand-card img {
-  max-height: 120px;
-  max-width: 250px;
-  object-fit: contain;
-  transition: transform 0.3s ease;
+/* --- The Image Tag Itself --- */
+.brand-logo-item img {
+  max-height: 100%; /* Ensures logo never breaks out of the 70px height */
+  max-width: 100%; /* Ensures logo never breaks out of the 170px width */
+  width: auto; /* Maintains aspect ratio */
+  height: auto; /* Maintains aspect ratio */
+
+  /* IMPORTANT: Prevents the browser's default image-drag behavior, 
+     which would interfere with our container-drag logic. */
+  pointer-events: none;
+  user-select: none;
 }
 
-.brand-card img:hover {
-  transform: scale(1.15);
-}
-
-/* Navigation arrows
-.swiper-button-prev,
-.swiper-button-next {
-  color: #00b894;
-  transition: transform 0.2s;
-} */
-
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
-  transform: scale(1.2);
-}
-
-/* ✅ Hide arrows on mobile */
+/* --- Responsive styles for smaller screens --- */
 @media (max-width: 768px) {
-  .swiper-button-prev,
-  .swiper-button-next {
-    display: none !important;
+  .partner-brands-track {
+    gap: 2.5rem; /* Slightly reduce gap on mobile */
   }
-  .section-title {
-    font-size: 2rem;
-    margin-bottom: 50px;
+
+  .brand-logo-item {
+    /* Make logos slightly smaller on mobile to fit more in view */
+    height: 55px;
+    width: 140px;
   }
-  .brand-card img {
-    max-height: 90px;
-    max-width: 180px;
-  }
+}
+/* --- Main Section Wrapper --- */
+.partner-brands-container {
+  padding: 3rem 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  background: white;
+  padding: 80px 0px 80px 0px;
 }
 
-@media (max-width: 480px) {
-  .section-title {
-    font-size: 1.8rem;
-    margin-bottom: 40px;
-  }
-  .brand-card img {
-    max-height: 80px;
-    max-width: 160px;
-  }
-}
-/* Navigation arrows */
-.swiper-button-prev,
-.swiper-button-next {
-  color: #00b894;
-  font-size: 28px;
-  font-weight: bold;
-  transition: transform 0.2s;
+/* --- Section Title Styles --- */
+.section-title {
+  text-align: center;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  margin-bottom: 2.5rem;
+  letter-spacing: 1px;
 }
 
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
-  transform: scale(1.2);
-}
-.swiper-button-prev,
-.swiper-button-next {
-  color: #00b894;
-  font-size: 28px;
-  font-weight: bold;
-  z-index: 20; /* ✅ keep above slides */
-  cursor: pointer;
+/* --- The Scroller (Outer Container) --- */
+.partner-brands-scroller {
+  overflow-x: scroll;
+  cursor: grab;
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  padding: 80px 0px 80px 0px;
 }
 
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
-  transform: scale(1.2);
+/* Hide scrollbar for Chrome, Safari, and Opera */
+.partner-brands-scroller::-webkit-scrollbar {
+  display: none;
+}
+
+/* Fade-out effect on the left and right edges */
+.partner-brands-scroller {
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 10%,
+    #000 90%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 10%,
+    #000 90%,
+    transparent
+  );
+}
+
+/* --- The Track (Inner Container) --- */
+.partner-brands-track {
+  display: flex;
+  width: max-content;
+  gap: 5rem; /* << INCREASED gap for more spacing */
+}
+
+/* --- Individual Logo Item --- */
+.brand-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* --- ⭐️ INCREASED LOGO SIZE (Desktop) --- */
+  height: 140px;
+  width: 250px;
+}
+
+/* --- The Image Tag Itself --- */
+.brand-logo-item img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* --- Responsive styles for smaller screens --- */
+@media (max-width: 768px) {
+  .partner-brands-track {
+    gap: 3rem; /* Adjusted mobile gap */
+  }
+
+  .brand-logo-item {
+    /* --- ⭐️ INCREASED LOGO SIZE (Mobile) --- */
+    height: 80px;
+    width: 120px;
+  }
 }
