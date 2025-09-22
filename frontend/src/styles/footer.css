@@ -35,16 +35,19 @@
 }
 .logo-text-footer {
   color: rgba(255, 255, 255, 0.868);
+  font-family: "Cinzel", serif;
 }
 
 .footer-logo .highlight {
   color: #00b894; /* green highlight */
+  font-family: "Cinzel", serif;
 }
 
 .footer-logo .footer-tagline {
   font-size: 0.9rem;
   margin-top: -10px;
   color: #ffffff;
+  letter-spacing: 1.5px;
 }
 
 .footer-links h4,
