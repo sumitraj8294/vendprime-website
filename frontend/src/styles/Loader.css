@@ -1,0 +1,81 @@
+.loader-container {
+  display: flex;
+  flex-direction: column; /* stack vending machine and text */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("../assets/images/hero.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.vending-machine {
+  position: relative;
+  width: 150px;
+  height: 200px;
+}
+
+.machine-logo {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.dispensed-item {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  transform: translateX(-50%);
+  animation: drop 1.5s infinite;
+}
+
+.dispensed-item.delay {
+  animation-delay: 0.75s;
+}
+
+@keyframes drop {
+  0% {
+    top: 50px;
+    opacity: 0;
+    transform: translateX(-50%) scale(0.5);
+  }
+  20% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+  70% {
+    top: 150px;
+    opacity: 1;
+  }
+  100% {
+    top: 200px;
+    opacity: 0;
+    transform: translateX(-50%) scale(0.5);
+  }
+}
+
+/* ------------------ Loader Text ------------------ */
+.loader-text {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00b894; /* VendPrime primary color */
+  text-shadow: 0 0 10px rgba(0, 184, 148, 0.7);
+  animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0.3;
+  }
+}
