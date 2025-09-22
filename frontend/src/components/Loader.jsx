@@ -12,7 +12,7 @@ const Loader = () => {
         <img src={item} alt="Item" className="dispensed-item delay" />
       </div>
       {/* Loading text */}
-      <div className="loader-text">Loading VendPrime...</div>
+      {/* <div className="loader-text">Loading VendPrime...</div> */}
     </div>
   );
 };

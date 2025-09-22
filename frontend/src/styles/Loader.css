@@ -30,11 +30,11 @@
   width: 30px;
   height: 30px;
   transform: translateX(-50%);
-  animation: drop 1.5s infinite;
+  animation: drop 2.5s infinite;
 }
 
 .dispensed-item.delay {
-  animation-delay: 0.75s;
+  animation-delay: 1.5s;
 }
 
 @keyframes drop {
@@ -59,14 +59,14 @@
 }
 
 /* ------------------ Loader Text ------------------ */
-.loader-text {
+/* .loader-text {
   margin-top: 20px;
   font-size: 1.5rem;
   font-weight: bold;
-  color: #00b894; /* VendPrime primary color */
+  color: #00b894;
   text-shadow: 0 0 10px rgba(0, 184, 148, 0.7);
   animation: blink 1.2s infinite;
-}
+} */
 
 @keyframes blink {
   0%,
