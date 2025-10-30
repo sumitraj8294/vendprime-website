@@ -2,10 +2,11 @@ import React from 'react';
 import '../styles/Clients.css';
 
 // --- Logos imported in the specified order ---
-import kpmgLogo from '../assets/logos/kpmg.png';
+// import kpmgLogo from '../assets/logos/kpmg.png';
 import jiohotstarLogo from '../assets/logos/jiohotstar.png';
 import dentalKartLogo from '../assets/logos/dental.png';
-import oyoLogo from '../assets/logos/oyo.png';
+// import oyoLogo from '../assets/logos/oyo.png';
+import alkemLogo from '../assets/logos/alkem.png';
 import rbiLogo from '../assets/logos/rbi.png';
 import concentrixLogo from '../assets/logos/concentrix.png';
 import ntpcLogo from '../assets/logos/ntpc.png';
@@ -18,14 +19,16 @@ import starLogo from '../assets/logos/star.png';
 
 // --- Client data array in the specified order ---
 const clients = [
-  { name: 'KPMG', logoUrl: kpmgLogo },
+  // { name: 'KPMG', logoUrl: kpmgLogo },
   { name: 'Jio Hotstar', logoUrl: jiohotstarLogo },
   { name: 'Dental Kart', logoUrl: dentalKartLogo },
-  { name: 'Oyo', logoUrl: oyoLogo },
+  // { name: 'Oyo', logoUrl: oyoLogo },
+  { name: 'Alkem Laboratories', logoUrl: alkemLogo },
   { name: 'RBI', logoUrl: rbiLogo },
   { name: 'Concentrix', logoUrl: concentrixLogo },
   { name: 'NTPC', logoUrl: ntpcLogo },
   { name: 'IIT Delhi', logoUrl: iitDelhiLogo },
+
   { name: 'Medanta Hospitals', logoUrl: medantaLogo },
   { name: 'Amity University', logoUrl: amityLogo },
   { name: 'Platina heights', logoUrl: platinaLogo },
