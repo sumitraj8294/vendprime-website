@@ -37,7 +37,7 @@ function Navbar({ setPage }) {
         <button onClick={() => handleNavClick("home")}>Home</button>
         <button onClick={() => handleNavClick("about")}>About Us</button>
         <button onClick={() => handleNavClick("services")}>Services</button>
-        <button onClick={() => handleNavClick("clients")}>Clients</button>
+        {/* <button onClick={() => handleNavClick("clients")}>Clients</button> */}
         <button onClick={() => handleNavClick("contact")}>Contact</button>
         <button onClick={() => handleNavClick("feedback")}>Feedback</button>
       </div>
