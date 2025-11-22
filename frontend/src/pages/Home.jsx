@@ -6,7 +6,7 @@ import HeroSection from "../components/HeroSection";
 import HowItWorksSection from "../components/HowItWorksSection";
 import ProductsSection from "../components/ProductsSection";
 import Services from "../components/Services";
-import Clients from "../components/Clients";
+// import Clients from "../components/Clients";
 import Contact from "../components/Contact";
 import Feedback from "../components/Feedback";
 import PartnerBrands from "../components/PartnerBrands";
@@ -15,7 +15,7 @@ function Home({ scrollToSection, setScrollToSection }) {
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
   const servicesRef = useRef(null);
-  const clientsRef = useRef(null);
+  // const clientsRef = useRef(null);
   const contactRef = useRef(null);
   const feedbackRef = useRef(null);
 
@@ -24,7 +24,7 @@ function Home({ scrollToSection, setScrollToSection }) {
       home: homeRef,
       about: aboutRef,
       services: servicesRef,
-      clients: clientsRef,
+      // clients: clientsRef,
       contact: contactRef,
       feedback: feedbackRef,
     };
@@ -51,9 +51,9 @@ function Home({ scrollToSection, setScrollToSection }) {
       <div ref={aboutRef}>
         <AboutSection />
       </div>
-      <div ref={clientsRef}>
+      {/* <div ref={clientsRef}>
         <Clients/>
-      </div>
+      </div> */}
       
       <div>
         <ProductsSection />
